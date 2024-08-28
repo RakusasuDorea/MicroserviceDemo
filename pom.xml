@@ -12,6 +12,9 @@
         <module>order-service</module>
         <module>customer-service</module>
         <module>zuul-service</module>
+        <module>transport-service</module>
+        <module>parkingslot-service</module>
+        <module>payment-service</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -43,6 +46,14 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.26</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
 
     <build>
         <plugins>

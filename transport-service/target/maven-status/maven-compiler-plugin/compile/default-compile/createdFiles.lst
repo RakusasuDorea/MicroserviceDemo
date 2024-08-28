@@ -1,0 +1,5 @@
+com\test\transport\controller\TransportController.class
+com\test\transport\service\TService.class
+com\test\transport\repository\TransportRepository.class
+com\test\transport\model\Transport.class
+com\test\transport\TransportService.class

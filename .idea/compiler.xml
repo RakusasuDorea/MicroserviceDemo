@@ -2,14 +2,18 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="parkingslot-service" />
+        <module name="payment-service" />
         <module name="customer-service" />
-        <module name="eureka-server" />
         <module name="order-service" />
+        <module name="transport-service" />
         <module name="zuul-service" />
+        <module name="eureka-server" />
       </profile>
     </annotationProcessing>
   </component>
@@ -18,6 +22,9 @@
       <module name="customer-service" options="-parameters" />
       <module name="eureka-server" options="-parameters" />
       <module name="order-service" options="-parameters" />
+      <module name="parkingslot-service" options="-parameters" />
+      <module name="payment-service" options="-parameters" />
+      <module name="transport-service" options="-parameters" />
       <module name="zuul-service" options="-parameters" />
     </option>
   </component>

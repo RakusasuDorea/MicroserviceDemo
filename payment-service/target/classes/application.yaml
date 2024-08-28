@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: payment-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/shared_db
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: password
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+server:
+  port: 8082
+
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serverviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+    instance:
+      hostname: localhost
