@@ -9,13 +9,15 @@
         <outputRelativeToContentRoot value="true" />
         <module name="parkingslot-service" />
         <module name="payment-service" />
-        <module name="customer-service" />
-        <module name="order-service" />
         <module name="transport-service" />
         <module name="zuul-service" />
         <module name="eureka-server" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="customer-service" target="1.8" />
+      <module name="order-service" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">

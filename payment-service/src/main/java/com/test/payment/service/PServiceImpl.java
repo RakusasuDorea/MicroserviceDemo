@@ -17,16 +17,16 @@ import java.util.Optional;
 public class PServiceImpl implements PService{
 
 
-    private PaymentRepository paymentRepository;
+    private final PaymentRepository paymentRepository;
 
 
-    private DiscoveryClient discoveryClient;
+    private final DiscoveryClient discoveryClient;
 
 
-    private RestTemplate restTemplate;
+    private final RestTemplate restTemplate;
 
 
-    private ObjectMapper objectMapper;
+    private final ObjectMapper objectMapper;
 
     public PServiceImpl(PaymentRepository paymentRepository, DiscoveryClient discoveryClient,
                         RestTemplate restTemplate, ObjectMapper objectMapper) {
@@ -80,7 +80,6 @@ public class PServiceImpl implements PService{
 
             return paymentRepository.save(payment);
         } catch (Exception e) {
-            e.printStackTrace();
             throw new RuntimeException("Error creating payment: " + e.getMessage(), e);
         }
     }

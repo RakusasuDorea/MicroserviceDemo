@@ -17,12 +17,6 @@ eureka:
 Zuul:
   prefix: /api
   routes:
-    customer-service:
-      path: /customer/**
-      serviceId: CUSTOMER-SERVICE
-    order-service:
-      path: /order/**
-      serviceId: ORDER-SERVICE
     transport-service:
       path: /transport/**
       serviceId: TRANSPORT-SERVICE
