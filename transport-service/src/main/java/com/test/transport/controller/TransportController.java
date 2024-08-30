@@ -1,9 +1,7 @@
 package com.test.transport.controller;
 
 import com.test.transport.model.Transport;
-import com.test.transport.repository.TransportRepository;
 import com.test.transport.service.TServiceImpl;
-import lombok.Data;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,11 +9,15 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-@Data
+
 @RestController
 public class TransportController {
     private final TServiceImpl transportServiceImpl;
-    private final TransportRepository transportRepository;
+
+
+    public TransportController(TServiceImpl transportServiceImpl) {
+        this.transportServiceImpl = transportServiceImpl;
+    }
 
     @PostMapping("/create")
     public ResponseEntity<String> createTransport(@RequestBody Transport transport) {

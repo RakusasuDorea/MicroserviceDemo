@@ -1,9 +1,7 @@
 package com.test.parkingslot.controller;
 
 import com.test.parkingslot.model.ParkingSlot;
-import com.test.parkingslot.repository.ParkingSlotRepository;
 import com.test.parkingslot.service.PSlotServiceImpl;
-import lombok.Data;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,13 +10,16 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-@Data
+
 @RestController
 public class ParkingSlotController {
 
     private final PSlotServiceImpl parkingSlotService;
 
-    private final ParkingSlotRepository parkingSlotRepository;
+
+    public ParkingSlotController(PSlotServiceImpl parkingSlotService) {
+        this.parkingSlotService = parkingSlotService;
+    }
 
     @PostMapping("/create")
     public ResponseEntity<String> createParkingSlot(@RequestBody ParkingSlot parkingSlot) {

@@ -2,7 +2,7 @@ package com.test.payment.controller;
 
 import com.test.payment.model.Payment;
 import com.test.payment.service.PServiceImpl;
-import lombok.Data;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,10 +10,14 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-@Data
+
 @RestController
 public class PaymentController {
     private final PServiceImpl paymentService;
+
+    public PaymentController(PServiceImpl paymentService) {
+        this.paymentService = paymentService;
+    }
 
     @PostMapping("/create")
     public ResponseEntity<String> createPayment(@RequestBody Payment payment) {
