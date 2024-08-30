@@ -2,63 +2,63 @@
 
 actor User
 participant ParkingSlotController
-participant PSlotServiceImpl
+participant ParkingSlotServiceImpl
 participant ParkingSlotRepository
 
 User -> ParkingSlotController: createParkingSlot(ParkingSlot)
 activate ParkingSlotController
-ParkingSlotController -> PSlotServiceImpl: createParkingSlot(ParkingSlot)
-activate PSlotServiceImpl
-PSlotServiceImpl -> ParkingSlotRepository: save(ParkingSlot)
+ParkingSlotController -> ParkingSlotServiceImpl: createParkingSlot(ParkingSlot)
+activate ParkingSlotServiceImpl
+ParkingSlotServiceImpl -> ParkingSlotRepository: save(ParkingSlot)
 activate ParkingSlotRepository
-ParkingSlotRepository --> PSlotServiceImpl: ParkingSlot saved
+ParkingSlotRepository --> ParkingSlotServiceImpl: ParkingSlot saved
 deactivate ParkingSlotRepository
-PSlotServiceImpl --> ParkingSlotController: ParkingSlot created
+ParkingSlotServiceImpl --> ParkingSlotController: ParkingSlot created
 ParkingSlotController -> User: ParkingSlot created
-deactivate PSlotServiceImpl
+deactivate ParkingSlotServiceImpl
 deactivate ParkingSlotController
 
 User -> ParkingSlotController: updateAvailability(id, availability)
 activate ParkingSlotController
-ParkingSlotController -> PSlotServiceImpl: updateAvailability(id, availability)
-activate PSlotServiceImpl
-PSlotServiceImpl -> ParkingSlotRepository: findById(id)
+ParkingSlotController -> ParkingSlotServiceImpl: updateAvailability(id, availability)
+activate ParkingSlotServiceImpl
+ParkingSlotServiceImpl -> ParkingSlotRepository: findById(id)
 activate ParkingSlotRepository
-ParkingSlotRepository --> PSlotServiceImpl: Optional<ParkingSlot>
+ParkingSlotRepository --> ParkingSlotServiceImpl: Optional<ParkingSlot>
 deactivate ParkingSlotRepository
-PSlotServiceImpl -> ParkingSlotRepository: save(ParkingSlot)
+ParkingSlotServiceImpl -> ParkingSlotRepository: save(ParkingSlot)
 activate ParkingSlotRepository
-ParkingSlotRepository --> PSlotServiceImpl: ParkingSlot updated
+ParkingSlotRepository --> ParkingSlotServiceImpl: ParkingSlot updated
 deactivate ParkingSlotRepository
-PSlotServiceImpl --> ParkingSlotController: ParkingSlot updated
+ParkingSlotServiceImpl --> ParkingSlotController: ParkingSlot updated
 ParkingSlotController -> User: ParkingSlot updated
-deactivate PSlotServiceImpl
+deactivate ParkingSlotServiceImpl
 deactivate ParkingSlotController
 
 User -> ParkingSlotController: getAllParkingSlots()
 activate ParkingSlotController
-ParkingSlotController -> PSlotServiceImpl: getAllParkingSlots()
-activate PSlotServiceImpl
-PSlotServiceImpl -> ParkingSlotRepository: findAll()
+ParkingSlotController -> ParkingSlotServiceImpl: getAllParkingSlots()
+activate ParkingSlotServiceImpl
+ParkingSlotServiceImpl -> ParkingSlotRepository: findAll()
 activate ParkingSlotRepository
-ParkingSlotRepository --> PSlotServiceImpl: List<ParkingSlot>
+ParkingSlotRepository --> ParkingSlotServiceImpl: List of ParkingSlots
 deactivate ParkingSlotRepository
-PSlotServiceImpl --> ParkingSlotController: List<ParkingSlot>
-ParkingSlotController -> User: List<ParkingSlot>
-deactivate PSlotServiceImpl
+ParkingSlotServiceImpl --> ParkingSlotController: List of ParkingSlots
+ParkingSlotController -> User: List of ParkingSlots
+deactivate ParkingSlotServiceImpl
 deactivate ParkingSlotController
 
 User -> ParkingSlotController: getParkingSlotById(id)
 activate ParkingSlotController
-ParkingSlotController -> PSlotServiceImpl: getParkingSlotById(id)
-activate PSlotServiceImpl
-PSlotServiceImpl -> ParkingSlotRepository: findById(id)
+ParkingSlotController -> ParkingSlotServiceImpl: getParkingSlotById(id)
+activate ParkingSlotServiceImpl
+ParkingSlotServiceImpl -> ParkingSlotRepository: findById(id)
 activate ParkingSlotRepository
-ParkingSlotRepository --> PSlotServiceImpl: Optional<ParkingSlot>
+ParkingSlotRepository --> ParkingSlotServiceImpl: Optional<ParkingSlot>
 deactivate ParkingSlotRepository
-PSlotServiceImpl --> ParkingSlotController: Optional<ParkingSlot>
+ParkingSlotServiceImpl --> ParkingSlotController: Optional<ParkingSlot>
 ParkingSlotController -> User: ParkingSlot (if found) or Not Found
-deactivate PSlotServiceImpl
+deactivate ParkingSlotServiceImpl
 deactivate ParkingSlotController
 
 @enduml

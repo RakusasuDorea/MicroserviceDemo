@@ -8,18 +8,18 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class TServiceImpl implements TService{
+public class TransportServiceImpl implements TransportService {
 
 
     private final TransportRepository transportRepository;
 
-    public TServiceImpl(TransportRepository transportRepository) {
+    public TransportServiceImpl(TransportRepository transportRepository) {
         this.transportRepository = transportRepository;
     }
 
     @Override
     public Transport createTransport(Transport transport) {
-        if (transport.getName() == null || transport.getType() == null) {
+        if (null == transport.getName()  || null == transport.getType()) {
             throw new IllegalArgumentException("Name and type must not be null.");
         }
         return transportRepository.save(transport);

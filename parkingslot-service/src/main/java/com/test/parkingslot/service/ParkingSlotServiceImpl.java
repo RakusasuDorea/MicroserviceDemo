@@ -8,17 +8,17 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class PSlotServiceImpl implements PSlotService {
+public class ParkingSlotServiceImpl implements ParkingSlotService {
 
     private final ParkingSlotRepository parkingSlotRepository;
 
-    public PSlotServiceImpl(ParkingSlotRepository parkingSlotRepository) {
+    public ParkingSlotServiceImpl(ParkingSlotRepository parkingSlotRepository) {
         this.parkingSlotRepository = parkingSlotRepository;
     }
 
     @Override
     public ParkingSlot createParkingSlot(ParkingSlot parkingSlot) {
-        if (parkingSlot.getName() == null || parkingSlot.getAvailability() == null) {
+        if (null == parkingSlot.getName() || null == parkingSlot.getAvailability()) {
             throw new IllegalArgumentException("Name and availability must not be null.");
         }
         return parkingSlotRepository.save(parkingSlot);

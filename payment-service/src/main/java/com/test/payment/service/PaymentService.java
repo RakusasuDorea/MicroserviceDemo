@@ -5,7 +5,7 @@ import com.test.payment.model.Payment;
 import java.util.List;
 import java.util.Optional;
 
-public interface PService {
+public interface PaymentService {
 
     Payment createPayment(Payment payment);
 

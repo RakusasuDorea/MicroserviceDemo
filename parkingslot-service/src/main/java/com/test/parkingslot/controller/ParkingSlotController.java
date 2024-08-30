@@ -1,7 +1,7 @@
 package com.test.parkingslot.controller;
 
 import com.test.parkingslot.model.ParkingSlot;
-import com.test.parkingslot.service.PSlotServiceImpl;
+import com.test.parkingslot.service.ParkingSlotServiceImpl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,10 +14,10 @@ import java.util.Optional;
 @RestController
 public class ParkingSlotController {
 
-    private final PSlotServiceImpl parkingSlotService;
+    private final ParkingSlotServiceImpl parkingSlotService;
 
 
-    public ParkingSlotController(PSlotServiceImpl parkingSlotService) {
+    public ParkingSlotController(ParkingSlotServiceImpl parkingSlotService) {
         this.parkingSlotService = parkingSlotService;
     }
 

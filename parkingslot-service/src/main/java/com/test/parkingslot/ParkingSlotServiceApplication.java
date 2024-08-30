@@ -6,8 +6,8 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 @SpringBootApplication
 @EnableEurekaClient
-public class ParkingSlotService {
+public class ParkingSlotServiceApplication {
     public static void main(String[] args) {
-        SpringApplication.run(ParkingSlotService.class, args);
+        SpringApplication.run(ParkingSlotServiceApplication.class, args);
     }
 }

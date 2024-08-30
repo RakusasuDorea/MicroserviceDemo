@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class PServiceImpl implements PService{
+public class PaymentServiceImpl implements PaymentService {
 
 
     private final PaymentRepository paymentRepository;
@@ -28,8 +28,8 @@ public class PServiceImpl implements PService{
 
     private final ObjectMapper objectMapper;
 
-    public PServiceImpl(PaymentRepository paymentRepository, DiscoveryClient discoveryClient,
-                        RestTemplate restTemplate, ObjectMapper objectMapper) {
+    public PaymentServiceImpl(PaymentRepository paymentRepository, DiscoveryClient discoveryClient,
+                              RestTemplate restTemplate, ObjectMapper objectMapper) {
         this.paymentRepository = paymentRepository;
         this.discoveryClient = discoveryClient;
         this.restTemplate = restTemplate;

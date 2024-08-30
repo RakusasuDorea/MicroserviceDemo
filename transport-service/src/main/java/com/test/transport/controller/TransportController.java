@@ -1,7 +1,7 @@
 package com.test.transport.controller;
 
 import com.test.transport.model.Transport;
-import com.test.transport.service.TServiceImpl;
+import com.test.transport.service.TransportServiceImpl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,11 +11,12 @@ import java.util.Optional;
 
 
 @RestController
+@RequestMapping("/transport")
 public class TransportController {
-    private final TServiceImpl transportServiceImpl;
+    private final TransportServiceImpl transportServiceImpl;
 
 
-    public TransportController(TServiceImpl transportServiceImpl) {
+    public TransportController(TransportServiceImpl transportServiceImpl) {
         this.transportServiceImpl = transportServiceImpl;
     }
 

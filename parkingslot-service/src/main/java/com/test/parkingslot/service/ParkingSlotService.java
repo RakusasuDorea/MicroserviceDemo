@@ -5,7 +5,7 @@ import com.test.parkingslot.model.ParkingSlot;
 import java.util.List;
 import java.util.Optional;
 
-public interface PSlotService {
+public interface ParkingSlotService {
     ParkingSlot createParkingSlot(ParkingSlot parkingSlot);
 
     ParkingSlot updateAvailability(Long id, boolean availability);

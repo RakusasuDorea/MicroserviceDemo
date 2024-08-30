@@ -1,7 +1,7 @@
 package com.test.payment.controller;
 
 import com.test.payment.model.Payment;
-import com.test.payment.service.PServiceImpl;
+import com.test.payment.service.PaymentServiceImpl;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,9 +13,9 @@ import java.util.Optional;
 
 @RestController
 public class PaymentController {
-    private final PServiceImpl paymentService;
+    private final PaymentServiceImpl paymentService;
 
-    public PaymentController(PServiceImpl paymentService) {
+    public PaymentController(PaymentServiceImpl paymentService) {
         this.paymentService = paymentService;
     }
 

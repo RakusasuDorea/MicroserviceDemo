@@ -2,46 +2,46 @@
 
 actor User
 participant TransportController
-participant TServiceImpl
+participant TransportServiceImpl
 participant TransportRepository
 
 User -> TransportController: createTransport(Transport)
 activate TransportController
-TransportController -> TServiceImpl: createTransport(Transport)
-activate TServiceImpl
-TServiceImpl -> TransportRepository: save(Transport)
+TransportController -> TransportServiceImpl: createTransport(Transport)
+activate TransportServiceImpl
+TransportServiceImpl -> TransportRepository: save(Transport)
 activate TransportRepository
-TransportRepository --> TServiceImpl: Transport saved
+TransportRepository --> TransportServiceImpl: Transport saved
 deactivate TransportRepository
-TServiceImpl --> TransportController: Transport created
+TransportServiceImpl --> TransportController: Transport created
 TransportController -> User: Transport created
-deactivate TServiceImpl
+deactivate TransportServiceImpl
 deactivate TransportController
 
 User -> TransportController: getAllTransports()
 activate TransportController
-TransportController -> TServiceImpl: getAllTransports()
-activate TServiceImpl
-TServiceImpl -> TransportRepository: findAll()
+TransportController -> TransportServiceImpl: getAllTransports()
+activate TransportServiceImpl
+TransportServiceImpl -> TransportRepository: findAll()
 activate TransportRepository
-TransportRepository --> TServiceImpl: List<Transport>
+TransportRepository --> TransportServiceImpl: List<Transport>
 deactivate TransportRepository
-TServiceImpl --> TransportController: List<Transport>
-TransportController -> User: List<Transport>
-deactivate TServiceImpl
+TransportServiceImpl --> TransportController: List<Transport>
+TransportController -> User: List of Transports
+deactivate TransportServiceImpl
 deactivate TransportController
 
 User -> TransportController: getTransportById(id)
 activate TransportController
-TransportController -> TServiceImpl: getTransportById(id)
-activate TServiceImpl
-TServiceImpl -> TransportRepository: findById(id)
+TransportController -> TransportServiceImpl: getTransportById(id)
+activate TransportServiceImpl
+TransportServiceImpl -> TransportRepository: findById(id)
 activate TransportRepository
-TransportRepository --> TServiceImpl: Optional<Transport>
+TransportRepository --> TransportServiceImpl: Optional<Transport>
 deactivate TransportRepository
-TServiceImpl --> TransportController: Optional<Transport>
+TransportServiceImpl --> TransportController: Optional<Transport>
 TransportController -> User: Transport (if found) or Not Found
-deactivate TServiceImpl
+deactivate TransportServiceImpl
 deactivate TransportController
 
 @enduml
