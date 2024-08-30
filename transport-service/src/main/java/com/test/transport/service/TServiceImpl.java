@@ -19,6 +19,9 @@ public class TServiceImpl implements TService{
 
     @Override
     public Transport createTransport(Transport transport) {
+        if (transport.getName() == null || transport.getType() == null) {
+            throw new IllegalArgumentException("Name and type must not be null.");
+        }
         return transportRepository.save(transport);
     }
     @Override
