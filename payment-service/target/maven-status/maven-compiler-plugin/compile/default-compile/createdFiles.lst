@@ -1,5 +1,0 @@
-com\test\payment\PaymentService.class
-com\test\payment\controller\PaymentController.class
-com\test\payment\model\Payment.class
-com\test\payment\service\PService.class
-com\test\payment\repository\PaymentRepository.class

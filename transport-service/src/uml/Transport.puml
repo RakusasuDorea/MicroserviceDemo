@@ -1,0 +1,47 @@
+@startuml
+
+actor User
+participant TransportController
+participant TServiceImpl
+participant TransportRepository
+
+User -> TransportController: createTransport(Transport)
+activate TransportController
+TransportController -> TServiceImpl: createTransport(Transport)
+activate TServiceImpl
+TServiceImpl -> TransportRepository: save(Transport)
+activate TransportRepository
+TransportRepository --> TServiceImpl: Transport saved
+deactivate TransportRepository
+TServiceImpl --> TransportController: Transport created
+TransportController -> User: Transport created
+deactivate TServiceImpl
+deactivate TransportController
+
+User -> TransportController: getAllTransports()
+activate TransportController
+TransportController -> TServiceImpl: getAllTransports()
+activate TServiceImpl
+TServiceImpl -> TransportRepository: findAll()
+activate TransportRepository
+TransportRepository --> TServiceImpl: List<Transport>
+deactivate TransportRepository
+TServiceImpl --> TransportController: List<Transport>
+TransportController -> User: List<Transport>
+deactivate TServiceImpl
+deactivate TransportController
+
+User -> TransportController: getTransportById(id)
+activate TransportController
+TransportController -> TServiceImpl: getTransportById(id)
+activate TServiceImpl
+TServiceImpl -> TransportRepository: findById(id)
+activate TransportRepository
+TransportRepository --> TServiceImpl: Optional<Transport>
+deactivate TransportRepository
+TServiceImpl --> TransportController: Optional<Transport>
+TransportController -> User: Transport (if found) or Not Found
+deactivate TServiceImpl
+deactivate TransportController
+
+@enduml

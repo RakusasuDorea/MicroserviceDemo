@@ -2,24 +2,25 @@ package com.test.transport.controller;
 
 import com.test.transport.model.Transport;
 import com.test.transport.repository.TransportRepository;
-import com.test.transport.service.TService;
+import com.test.transport.service.TServiceImpl;
 import lombok.Data;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @Data
 @RestController
 public class TransportController {
-    private final TService transportService;
+    private final TServiceImpl transportServiceImpl;
     private final TransportRepository transportRepository;
 
-    @PostMapping
+    @PostMapping("/create")
     public ResponseEntity<String> createTransport(@RequestBody Transport transport) {
         try {
-            Transport createdTransport = transportService.createTransport(transport);
+            Transport createdTransport = transportServiceImpl.createTransport(transport);
             String message = "Transport created successfully with ID: " + createdTransport.getId();
             return new ResponseEntity<>(message, HttpStatus.CREATED);
         } catch (Exception e) {
@@ -30,8 +31,17 @@ public class TransportController {
 
     @GetMapping
     public List<Transport> getAllTransports() {
-        return transportService.getAllTransports();
+        return transportServiceImpl.getAllTransports();
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Transport> getTransportById(@PathVariable Long id) {
+        Optional<Transport> transport = transportServiceImpl.getTransportById(id);
+        return transport
+                .map(t -> new ResponseEntity<>(t, HttpStatus.OK))
+                .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
+
 
 
 }

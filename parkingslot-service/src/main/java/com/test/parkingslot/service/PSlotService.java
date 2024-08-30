@@ -1,33 +1,16 @@
 package com.test.parkingslot.service;
 
 import com.test.parkingslot.model.ParkingSlot;
-import com.test.parkingslot.repository.ParkingSlotRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
-@Service
-public class PSlotService {
+public interface PSlotService {
+    ParkingSlot createParkingSlot(ParkingSlot parkingSlot);
 
-    @Autowired
-    private ParkingSlotRepository parkingSlotRepository;
+    ParkingSlot updateAvailability(Long id, boolean availability);
 
-    public ParkingSlot createParkingSlot(ParkingSlot parkingSlot) {
-        if (parkingSlot.getName() == null || parkingSlot.getAvailability() == null) {
-            throw new IllegalArgumentException("Name and availability must not be null.");
-        }
-        return parkingSlotRepository.save(parkingSlot);
-    }
-    public ParkingSlot updateParkingSlot(Long id, ParkingSlot updatedSlot) {
-        ParkingSlot existingSlot = parkingSlotRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Parking Slot not found with id " + id));
-        existingSlot.setName(updatedSlot.getName());
-        existingSlot.setAvailability(updatedSlot.getAvailability());
-        return parkingSlotRepository.save(existingSlot);
-    }
-    public List<ParkingSlot> getAllParkingSlots() {
-        return parkingSlotRepository.findAll();
-    }
+    List<ParkingSlot> getAllParkingSlots();
 
+    Optional<ParkingSlot> getParkingSlotById(Long id);
 }

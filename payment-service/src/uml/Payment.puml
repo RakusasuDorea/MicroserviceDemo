@@ -1,0 +1,63 @@
+@startuml
+
+actor User
+participant PaymentController
+participant PServiceImpl
+participant PaymentRepository
+participant DiscoveryClient
+
+User -> PaymentController: createPayment(Payment)
+activate PaymentController
+PaymentController -> PServiceImpl: createPayment(Payment)
+activate PServiceImpl
+
+PServiceImpl -> DiscoveryClient: getInstances("transport-service")
+activate DiscoveryClient
+DiscoveryClient --> PServiceImpl: Transport instances
+deactivate DiscoveryClient
+
+PServiceImpl -> DiscoveryClient: getInstances("parkingslot-service")
+activate DiscoveryClient
+DiscoveryClient --> PServiceImpl: ParkingSlot instances
+deactivate DiscoveryClient
+
+PServiceImpl -> PaymentRepository: save(Payment)
+activate PaymentRepository
+PaymentRepository --> PServiceImpl: Payment saved
+deactivate PaymentRepository
+
+PServiceImpl -> PServiceImpl: calculatePrice(transportType)
+PServiceImpl -> PServiceImpl: markSlotAsOccupied(slotId)
+
+PServiceImpl --> PaymentController: Payment created
+PaymentController -> User: Payment created
+deactivate PServiceImpl
+deactivate PaymentController
+
+User -> PaymentController: getAllPayments()
+activate PaymentController
+PaymentController -> PServiceImpl: getAllPayments()
+activate PServiceImpl
+PServiceImpl -> PaymentRepository: findAll()
+activate PaymentRepository
+PaymentRepository --> PServiceImpl: List<Payment>
+deactivate PaymentRepository
+PServiceImpl --> PaymentController: List<Payment>
+PaymentController -> User: List<Payment>
+deactivate PServiceImpl
+deactivate PaymentController
+
+User -> PaymentController: getPaymentById(id)
+activate PaymentController
+PaymentController -> PServiceImpl: getPaymentById(id)
+activate PServiceImpl
+PServiceImpl -> PaymentRepository: findById(id)
+activate PaymentRepository
+PaymentRepository --> PServiceImpl: Optional<Payment>
+deactivate PaymentRepository
+PServiceImpl --> PaymentController: Optional<Payment>
+PaymentController -> User: Payment (if found) or Not Found
+deactivate PServiceImpl
+deactivate PaymentController
+
+@enduml

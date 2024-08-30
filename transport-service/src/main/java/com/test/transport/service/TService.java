@@ -1,22 +1,14 @@
 package com.test.transport.service;
 
 import com.test.transport.model.Transport;
-import com.test.transport.repository.TransportRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
-@Service
-public class TService {
+public interface TService {
+    Transport createTransport(Transport transport);
 
-    @Autowired
-    private TransportRepository transportRepository;
+    List<Transport> getAllTransports();
 
-    public Transport createTransport(Transport transport) {
-        return transportRepository.save(transport);
-    }
-    public List<Transport> getAllTransports() {
-        return transportRepository.findAll();
-    }
+    Optional<Transport> getTransportById(Long id);
 }

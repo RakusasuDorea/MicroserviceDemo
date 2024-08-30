@@ -1,0 +1,64 @@
+@startuml
+
+actor User
+participant ParkingSlotController
+participant PSlotServiceImpl
+participant ParkingSlotRepository
+
+User -> ParkingSlotController: createParkingSlot(ParkingSlot)
+activate ParkingSlotController
+ParkingSlotController -> PSlotServiceImpl: createParkingSlot(ParkingSlot)
+activate PSlotServiceImpl
+PSlotServiceImpl -> ParkingSlotRepository: save(ParkingSlot)
+activate ParkingSlotRepository
+ParkingSlotRepository --> PSlotServiceImpl: ParkingSlot saved
+deactivate ParkingSlotRepository
+PSlotServiceImpl --> ParkingSlotController: ParkingSlot created
+ParkingSlotController -> User: ParkingSlot created
+deactivate PSlotServiceImpl
+deactivate ParkingSlotController
+
+User -> ParkingSlotController: updateAvailability(id, availability)
+activate ParkingSlotController
+ParkingSlotController -> PSlotServiceImpl: updateAvailability(id, availability)
+activate PSlotServiceImpl
+PSlotServiceImpl -> ParkingSlotRepository: findById(id)
+activate ParkingSlotRepository
+ParkingSlotRepository --> PSlotServiceImpl: Optional<ParkingSlot>
+deactivate ParkingSlotRepository
+PSlotServiceImpl -> ParkingSlotRepository: save(ParkingSlot)
+activate ParkingSlotRepository
+ParkingSlotRepository --> PSlotServiceImpl: ParkingSlot updated
+deactivate ParkingSlotRepository
+PSlotServiceImpl --> ParkingSlotController: ParkingSlot updated
+ParkingSlotController -> User: ParkingSlot updated
+deactivate PSlotServiceImpl
+deactivate ParkingSlotController
+
+User -> ParkingSlotController: getAllParkingSlots()
+activate ParkingSlotController
+ParkingSlotController -> PSlotServiceImpl: getAllParkingSlots()
+activate PSlotServiceImpl
+PSlotServiceImpl -> ParkingSlotRepository: findAll()
+activate ParkingSlotRepository
+ParkingSlotRepository --> PSlotServiceImpl: List<ParkingSlot>
+deactivate ParkingSlotRepository
+PSlotServiceImpl --> ParkingSlotController: List<ParkingSlot>
+ParkingSlotController -> User: List<ParkingSlot>
+deactivate PSlotServiceImpl
+deactivate ParkingSlotController
+
+User -> ParkingSlotController: getParkingSlotById(id)
+activate ParkingSlotController
+ParkingSlotController -> PSlotServiceImpl: getParkingSlotById(id)
+activate PSlotServiceImpl
+PSlotServiceImpl -> ParkingSlotRepository: findById(id)
+activate ParkingSlotRepository
+ParkingSlotRepository --> PSlotServiceImpl: Optional<ParkingSlot>
+deactivate ParkingSlotRepository
+PSlotServiceImpl --> ParkingSlotController: Optional<ParkingSlot>
+ParkingSlotController -> User: ParkingSlot (if found) or Not Found
+deactivate PSlotServiceImpl
+deactivate ParkingSlotController
+
+@enduml

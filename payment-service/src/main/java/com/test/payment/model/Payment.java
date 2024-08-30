@@ -1,7 +1,7 @@
 package com.test.payment.model;
 
-import com.test.parkingslot.model.ParkingSlot;
-import com.test.transport.model.Transport;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.test.payment.serializer.PaymentSerializer;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -10,18 +10,17 @@ import javax.persistence.*;
 @Data
 @NoArgsConstructor
 @Entity
+@JsonSerialize(using = PaymentSerializer.class)
 public class Payment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    private Transport transport;
-
-   @ManyToOne
-    private ParkingSlot parkingSlot;
+    private String transportName;
+    private String slotName;
     private int price;
 
-
+    private Long transportId;
+    private Long slotId;
 }
