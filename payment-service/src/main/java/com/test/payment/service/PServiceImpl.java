@@ -64,11 +64,16 @@ public class PServiceImpl implements PService{
 
             // Find the correct slot by ID
             String slotName = "Unknown";
+            boolean slotAvailable = false;
             for (JsonNode slotNode : slotArray) {
                 if (slotNode.get("id").asLong() == payment.getSlotId()) {
                     slotName = slotNode.get("name").asText();
+                    slotAvailable = slotNode.get("availability").asBoolean();
                     break;
                 }
+            }
+            if (!slotAvailable) {
+                throw new RuntimeException("Parking slot is not available.");
             }
             int calculatedPrice = calculatePrice(transportType);
             payment.setPrice(calculatedPrice);
@@ -80,7 +85,7 @@ public class PServiceImpl implements PService{
 
             return paymentRepository.save(payment);
         } catch (Exception e) {
-            throw new RuntimeException("Error creating payment: " + e.getMessage(), e);
+            throw new RuntimeException(e.getMessage(), e);
         }
     }
 
@@ -112,11 +117,11 @@ public class PServiceImpl implements PService{
                 + "/update/" + slotId;
         Map<String, Object> requestBody = new HashMap<>();
         requestBody.put("availability", false);
-
         try {
             restTemplate.put(slotUpdateUrl, requestBody);
         } catch (RestClientException e) {
             throw new RuntimeException("Error updating parking slot availability", e);
         }
     }
+
 }
