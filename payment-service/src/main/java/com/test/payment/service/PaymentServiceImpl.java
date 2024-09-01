@@ -40,12 +40,15 @@ public class PaymentServiceImpl implements PaymentService {
     public Payment createPayment(Payment payment) {
         try {
             // Construct URLs for transport and slot services
-            String transportUrl = discoveryClient.getInstances("transport-service").get(0).getUri().toString() + "/api/transport";
-            String slotUrl = discoveryClient.getInstances("parkingslot-service").get(0).getUri().toString() + "/api/parkingslot";
+            String transportUrl = discoveryClient.getInstances("transport-service").get(0).getUri().toString() + "/transport";
+            String slotUrl = discoveryClient.getInstances("parkingslot-service").get(0).getUri().toString() + "/parkingslot";
 
             // Fetch and parse responses
             String transportResponse = restTemplate.getForObject(transportUrl, String.class);
             String slotResponse = restTemplate.getForObject(slotUrl, String.class);
+
+            System.out.println("Transport URL: " + transportUrl);
+            System.out.println("Slot URL: " + slotUrl);
 
             // Parse JSON responses
             JsonNode transportArray = objectMapper.readTree(transportResponse);
@@ -114,7 +117,7 @@ public class PaymentServiceImpl implements PaymentService {
 
     private void markSlotAsOccupied(Long slotId) {
         String slotUpdateUrl = discoveryClient.getInstances("parkingslot-service").get(0).getUri().toString()
-                + "/update/" + slotId;
+                + "parkingslot/update/" + slotId;
         Map<String, Object> requestBody = new HashMap<>();
         requestBody.put("availability", false);
         try {

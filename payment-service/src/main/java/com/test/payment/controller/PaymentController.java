@@ -12,6 +12,7 @@ import java.util.Optional;
 
 
 @RestController
+@RequestMapping("/payment")
 public class PaymentController {
     private final PaymentServiceImpl paymentService;
 

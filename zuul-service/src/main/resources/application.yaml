@@ -19,10 +19,10 @@ Zuul:
   routes:
     transport-service:
       path: /transport/**
-      serviceId: TRANSPORT-SERVICE
+      serviceId: transport-service
     parkingslot-service:
       path: /parkingslot/**
-      serviceId: PARKINGSLOT-SERVICE
+      serviceId: parkingslot-service
     payment-service:
       path: /payment/**
-      service-id: PAYMENT-SERVICE
+      service-id: payment-service

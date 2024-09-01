@@ -12,6 +12,7 @@ import java.util.Optional;
 
 
 @RestController
+@RequestMapping("/parkingslot")
 public class ParkingSlotController {
 
     private final ParkingSlotServiceImpl parkingSlotService;
