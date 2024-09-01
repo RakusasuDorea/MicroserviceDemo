@@ -1,0 +1,255 @@
+{
+	"info": {
+		"_postman_id": "5068841b-cafa-4ad6-8e32-ff86d5773b7e",
+		"name": "Api-Gateway",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37806702"
+	},
+	"item": [
+		{
+			"name": "Create Transport",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"\",\r\n    \"type\" : \"\"\r\n}\r\n/*\r\n{\r\n    \"name\" : \"Motor\",\r\n    \"type\" : \"Light\"\r\n}\r\n{\r\n    \"name\" : \"Car\",\r\n    \"type\" : \"Medium\"\r\n}\r\n{\r\n    \"name\" : \"Truck\",\r\n    \"type\" : \"Heavy\"\r\n}\r\n*/",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/api/transport/transport/create",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"transport",
+						"transport",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Transport",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/api/transport/transport",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"transport",
+						"transport"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Transport by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/api/transport/transport/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"transport",
+						"transport",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Parking Slot",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"\",\r\n  \"availability\": \"\"\r\n}\r\n/*\r\n{\r\n  \"name\": \"Slot A1\",\r\n  \"availability\": true\r\n}\r\n{\r\n  \"name\": \"Slot A2\",\r\n  \"availability\": true\r\n}\r\n{\r\n  \"name\": \"Slot A3\",\r\n  \"availability\": true\r\n}\r\n*/",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/api/parkingslot/parkingslot/create",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"parkingslot",
+						"parkingslot",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Parking Slot",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"availability\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/api/parkingslot/parkingslot/update/3",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"parkingslot",
+						"parkingslot",
+						"update",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Parking Slot",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/api/parkingslot/parkingslot",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"parkingslot",
+						"parkingslot"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Parking Slot by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/api/parkingslot/parkingslot/4",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"parkingslot",
+						"parkingslot",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Payment",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"transportId\": 1,\r\n  \"slotId\": 1,\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/payment/payment/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"payment",
+						"payment",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Payment",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/api/payment/payment",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"payment",
+						"payment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Payment by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/api/payment/payment/id",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"payment",
+						"payment",
+						"id"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
