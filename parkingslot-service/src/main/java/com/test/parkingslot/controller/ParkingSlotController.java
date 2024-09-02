@@ -54,4 +54,11 @@ public class ParkingSlotController {
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
+    @GetMapping("/name/{id}")
+    public ResponseEntity<String> getParkingSlotByName(@PathVariable Long id) {
+        Optional<ParkingSlot> parkingSlot = parkingSlotService.getParkingSlotById(id);
+        return parkingSlot
+                .map(t -> new ResponseEntity<>(t.getName(), HttpStatus.OK))
+                .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
 }

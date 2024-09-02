@@ -42,4 +42,9 @@ public class ParkingSlotServiceImpl implements ParkingSlotService {
     public Optional<ParkingSlot> getParkingSlotById(Long id) {
         return parkingSlotRepository.findById(id);
     }
+
+    @Override
+    public Optional<ParkingSlot> getParkingSlotNameById(Long id){
+        return parkingSlotRepository.findById(id);
+    }
 }

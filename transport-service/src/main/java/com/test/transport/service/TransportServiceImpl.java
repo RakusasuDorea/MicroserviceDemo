@@ -24,12 +24,24 @@ public class TransportServiceImpl implements TransportService {
         }
         return transportRepository.save(transport);
     }
+
     @Override
     public List<Transport> getAllTransports() {
         return transportRepository.findAll();
     }
+
     @Override
     public Optional<Transport> getTransportById(Long id) {
+        return transportRepository.findById(id);
+    }
+
+    @Override
+    public Optional<Transport> getTransportNameById(Long id) {
+        return transportRepository.findById(id);
+    }
+
+    @Override
+    public Optional<Transport> getTransportTypeById(Long id) {
         return transportRepository.findById(id);
     }
 }

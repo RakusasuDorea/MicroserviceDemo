@@ -11,4 +11,8 @@ public interface TransportService {
     List<Transport> getAllTransports();
 
     Optional<Transport> getTransportById(Long id);
+
+    Optional<Transport> getTransportNameById(Long id);
+
+    Optional<Transport> getTransportTypeById(Long id);
 }

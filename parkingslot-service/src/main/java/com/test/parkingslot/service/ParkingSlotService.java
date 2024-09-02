@@ -13,4 +13,6 @@ public interface ParkingSlotService {
     List<ParkingSlot> getAllParkingSlots();
 
     Optional<ParkingSlot> getParkingSlotById(Long id);
+
+    Optional<ParkingSlot> getParkingSlotNameById(Long id);
 }

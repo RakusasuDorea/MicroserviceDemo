@@ -40,8 +40,10 @@ public class PaymentServiceImpl implements PaymentService {
     public Payment createPayment(Payment payment) {
         try {
             // Construct URLs for transport and slot services
-            String transportUrl = discoveryClient.getInstances("transport-service").get(0).getUri().toString() + "/transport";
-            String slotUrl = discoveryClient.getInstances("parkingslot-service").get(0).getUri().toString() + "/parkingslot";
+            String transportUrl = discoveryClient.getInstances("transport-service").get(0).getUri().toString()
+                    + "/transport";
+            String slotUrl = discoveryClient.getInstances("parkingslot-service").get(0).getUri().toString()
+                    + "/parkingslot";
 
             // Fetch and parse responses
             String transportResponse = restTemplate.getForObject(transportUrl, String.class);
