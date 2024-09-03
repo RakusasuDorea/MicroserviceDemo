@@ -8,30 +8,31 @@ participant DiscoveryClient
 
 User -> PaymentController: createPayment(Payment)
 activate PaymentController
+activate User
 PaymentController -> PaymentServiceImpl: createPayment(Payment)
 activate PaymentServiceImpl
 
 PaymentServiceImpl -> DiscoveryClient: getInstances("transport-service")
 activate DiscoveryClient
-DiscoveryClient --> PaymentServiceImpl: Transport instances
+DiscoveryClient -> PaymentServiceImpl: Transport instances
 deactivate DiscoveryClient
 
 PaymentServiceImpl -> DiscoveryClient: getInstances("parkingslot-service")
 activate DiscoveryClient
-DiscoveryClient --> PaymentServiceImpl: ParkingSlot instances
+DiscoveryClient -> PaymentServiceImpl: ParkingSlot instances
 deactivate DiscoveryClient
 
 PaymentServiceImpl -> PaymentRepository: save(Payment)
 activate PaymentRepository
-PaymentRepository --> PaymentServiceImpl: Payment saved
+PaymentRepository -> PaymentServiceImpl: Payment saved
 deactivate PaymentRepository
 
 PaymentServiceImpl -> PaymentServiceImpl: calculatePrice(transportType)
 PaymentServiceImpl -> PaymentServiceImpl: markSlotAsOccupied(slotId)
 
-PaymentServiceImpl --> PaymentController: Payment created
-PaymentController -> User: Payment created
+PaymentServiceImpl -> PaymentController: Payment created
 deactivate PaymentServiceImpl
+PaymentController -> User: Payment created
 deactivate PaymentController
 
 User -> PaymentController: getAllPayments()
@@ -40,24 +41,28 @@ PaymentController -> PaymentServiceImpl: getAllPayments()
 activate PaymentServiceImpl
 PaymentServiceImpl -> PaymentRepository: findAll()
 activate PaymentRepository
-PaymentRepository --> PaymentServiceImpl: List of Payments
+PaymentRepository -> PaymentServiceImpl: List of Payments
 deactivate PaymentRepository
-PaymentServiceImpl --> PaymentController: List of Payments
-PaymentController -> User: List of Payments
+PaymentServiceImpl -> PaymentController: List of Payments
 deactivate PaymentServiceImpl
+PaymentController -> User: List of Payments
 deactivate PaymentController
 
 User -> PaymentController: getPaymentById(id)
 activate PaymentController
+alt Slot exists
 PaymentController -> PaymentServiceImpl: getPaymentById(id)
 activate PaymentServiceImpl
 PaymentServiceImpl -> PaymentRepository: findById(id)
 activate PaymentRepository
-PaymentRepository --> PaymentServiceImpl: Optional<Payment>
+PaymentRepository -> PaymentServiceImpl: Optional<Payment>
 deactivate PaymentRepository
-PaymentServiceImpl --> PaymentController: Optional<Payment>
-PaymentController -> User: Payment (if found) or Not Found
+PaymentServiceImpl -> PaymentController: Optional<Payment>
 deactivate PaymentServiceImpl
+PaymentController -> User: Payment (if found) or Not Found
+else Slot not found
+PaymentController --> User: Slot Not Found
 deactivate PaymentController
-
+deactivate User
+end
 @enduml
