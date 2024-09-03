@@ -7,15 +7,16 @@ participant TransportRepository
 
 User -> TransportController: createTransport(Transport)
 activate TransportController
+activate User
 TransportController -> TransportServiceImpl: createTransport(Transport)
 activate TransportServiceImpl
 TransportServiceImpl -> TransportRepository: save(Transport)
 activate TransportRepository
-TransportRepository --> TransportServiceImpl: Transport saved
+TransportRepository -> TransportServiceImpl: Transport saved
 deactivate TransportRepository
-TransportServiceImpl --> TransportController: Transport created
-TransportController -> User: Transport created
+TransportServiceImpl -> TransportController: Transport created
 deactivate TransportServiceImpl
+TransportController -> User: Transport created
 deactivate TransportController
 
 User -> TransportController: getAllTransports()
@@ -24,24 +25,29 @@ TransportController -> TransportServiceImpl: getAllTransports()
 activate TransportServiceImpl
 TransportServiceImpl -> TransportRepository: findAll()
 activate TransportRepository
-TransportRepository --> TransportServiceImpl: List<Transport>
+TransportRepository -> TransportServiceImpl: List<Transport>
 deactivate TransportRepository
-TransportServiceImpl --> TransportController: List<Transport>
-TransportController -> User: List of Transports
+TransportServiceImpl -> TransportController: List<Transport>
 deactivate TransportServiceImpl
+TransportController -> User: List of Transports
 deactivate TransportController
 
 User -> TransportController: getTransportById(id)
 activate TransportController
-TransportController -> TransportServiceImpl: getTransportById(id)
-activate TransportServiceImpl
-TransportServiceImpl -> TransportRepository: findById(id)
-activate TransportRepository
-TransportRepository --> TransportServiceImpl: Optional<Transport>
-deactivate TransportRepository
-TransportServiceImpl --> TransportController: Optional<Transport>
-TransportController -> User: Transport (if found) or Not Found
-deactivate TransportServiceImpl
-deactivate TransportController
+alt Slot exists
+    TransportController -> TransportServiceImpl: getTransportById(id)
+    activate TransportServiceImpl
+    TransportServiceImpl -> TransportRepository: findById(id)
+    activate TransportRepository
+    TransportRepository -> TransportServiceImpl: Optional<Transport>
+    deactivate TransportRepository
+    TransportServiceImpl -> TransportController: Optional<Transport>
+    deactivate TransportServiceImpl
+    TransportController -> User: Transport (if found) or Not Found
+else Slot not found
+    TransportController --> User: Slot Not Found
+    deactivate TransportController
+    deactivate User
+end
 
 @enduml
