@@ -82,4 +82,25 @@ else Payment not found
     deactivate User
 end
 
+User -> PaymentController: deletePayment(id)
+activate PaymentController
+PaymentController -> PaymentServiceImpl: deletePayment(id)
+activate PaymentServiceImpl
+PaymentServiceImpl -> PaymentRepository: findById(id)
+activate PaymentRepository
+alt Payment exists
+    PaymentRepository -> PaymentServiceImpl: Optional<Payment>
+    PaymentServiceImpl -> PaymentServiceImpl: revertAvailability(slotId)
+    PaymentServiceImpl -> PaymentRepository: deleteById(id)
+    PaymentRepository -> PaymentServiceImpl: Payment deleted
+    deactivate PaymentRepository
+    PaymentServiceImpl -> PaymentController: Payment deleted
+else Payment not found
+    PaymentServiceImpl --> PaymentController: Payment Not Found
+    deactivate PaymentRepository
+    deactivate PaymentServiceImpl
+end
+PaymentController -> User: Payment deleted or Payment Not Found
+deactivate PaymentController
+
 @enduml

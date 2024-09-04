@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="576bb5b1-2b28-4184-9bfb-3c97f5e95dd8" name="Changes" comment="Fix Automation">
+    <list default="true" id="576bb5b1-2b28-4184-9bfb-3c97f5e95dd8" name="Changes" comment="add delete method">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parkingslot-service/src/main/java/com/test/parkingslot/controller/ParkingSlotController.java" beforeDir="false" afterPath="$PROJECT_DIR$/parkingslot-service/src/main/java/com/test/parkingslot/controller/ParkingSlotController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parkingslot-service/src/main/java/com/test/parkingslot/service/ParkingSlotServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/parkingslot-service/src/main/java/com/test/parkingslot/service/ParkingSlotServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/payment-service/src/main/java/com/test/payment/controller/PaymentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/src/main/java/com/test/payment/controller/PaymentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/payment-service/src/main/java/com/test/payment/service/PaymentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/src/main/java/com/test/payment/service/PaymentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/payment-service/src/main/java/com/test/payment/service/PaymentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/src/main/java/com/test/payment/service/PaymentServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment-service/src/uml/Payment.puml" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/src/uml/Payment.puml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -386,7 +382,31 @@
       <option name="project" value="LOCAL" />
       <updated>1725435705287</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Update Postman Collection">
+      <option name="closed" value="true" />
+      <created>1725438942850</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1725438942851</updated>
+    </task>
+    <task id="LOCAL-00020" summary="add method">
+      <option name="closed" value="true" />
+      <created>1725438980340</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1725438980340</updated>
+    </task>
+    <task id="LOCAL-00021" summary="add delete method">
+      <option name="closed" value="true" />
+      <created>1725438995100</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1725438995100</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -422,6 +442,9 @@
     <MESSAGE value="Update Transport.puml" />
     <MESSAGE value="Update Transport Service" />
     <MESSAGE value="Fix Automation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix Automation" />
+    <MESSAGE value="Update Postman Collection" />
+    <MESSAGE value="add method" />
+    <MESSAGE value="add delete method" />
+    <option name="LAST_COMMIT_MESSAGE" value="add delete method" />
   </component>
 </project>
