@@ -42,7 +42,7 @@ public class PaymentServiceImpl implements PaymentService {
             String slotName = restTemplate.getForObject(slotNameUrl, String.class );
             Boolean slotAvailability = restTemplate.getForObject(slotAvailabilityUrl, Boolean.class);
 
-//
+
             if (Boolean.FALSE.equals(slotAvailability)) {
                 throw new RuntimeException("Parking slot is not available.");
             }
