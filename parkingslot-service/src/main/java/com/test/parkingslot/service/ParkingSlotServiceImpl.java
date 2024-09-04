@@ -52,4 +52,6 @@ public class ParkingSlotServiceImpl implements ParkingSlotService {
         return parkingSlotRepository.findById(id);
     }
 
+
+
 }
