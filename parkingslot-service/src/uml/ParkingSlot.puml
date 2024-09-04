@@ -19,9 +19,9 @@ deactivate ParkingSlotServiceImpl
 ParkingSlotController -> User: ParkingSlot created
 deactivate ParkingSlotController
 
-User -> ParkingSlotController: updateAvailability(id, availability)
+User -> ParkingSlotController: updateAvailability(id)
 activate ParkingSlotController
-ParkingSlotController -> ParkingSlotServiceImpl: updateAvailability(id, availability)
+ParkingSlotController -> ParkingSlotServiceImpl: updateAvailability(id)
 activate ParkingSlotServiceImpl
 ParkingSlotServiceImpl -> ParkingSlotRepository: findById(id)
 activate ParkingSlotRepository
@@ -66,4 +66,41 @@ ParkingSlotController --> User: Slot Not Found
 deactivate ParkingSlotController
 deactivate User
 end
+
+User -> ParkingSlotController: getParkingSlotNameById(id)
+activate ParkingSlotController
+alt Slot exists
+ParkingSlotController -> ParkingSlotServiceImpl: getParkingSlotById(id)
+activate ParkingSlotServiceImpl
+ParkingSlotServiceImpl -> ParkingSlotRepository: findById(id)
+activate ParkingSlotRepository
+ParkingSlotRepository -> ParkingSlotServiceImpl: Optional<ParkingSlot>
+deactivate ParkingSlotRepository
+ParkingSlotServiceImpl -> ParkingSlotController: Optional<ParkingSlot>
+deactivate ParkingSlotServiceImpl
+ParkingSlotController -> User: ParkingSlot Name (if found) or Not Found
+else Slot not found
+ParkingSlotController --> User: Slot Not Found
+deactivate ParkingSlotController
+deactivate User
+end
+
+User -> ParkingSlotController: getParkingSlotAvailabilityById(id)
+activate ParkingSlotController
+alt Slot exists
+ParkingSlotController -> ParkingSlotServiceImpl: getParkingSlotById(id)
+activate ParkingSlotServiceImpl
+ParkingSlotServiceImpl -> ParkingSlotRepository: findById(id)
+activate ParkingSlotRepository
+ParkingSlotRepository -> ParkingSlotServiceImpl: Optional<ParkingSlot>
+deactivate ParkingSlotRepository
+ParkingSlotServiceImpl -> ParkingSlotController: Optional<ParkingSlot>
+deactivate ParkingSlotServiceImpl
+ParkingSlotController -> User: ParkingSlot Availability (if found) or Not Found
+else Slot not found
+ParkingSlotController --> User: Slot Not Found
+deactivate ParkingSlotController
+deactivate User
+end
+
 @enduml
