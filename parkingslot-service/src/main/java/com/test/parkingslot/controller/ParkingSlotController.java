@@ -34,9 +34,20 @@ public class ParkingSlotController {
         }
     }
 
-    @PutMapping("/update/{id}")
-    public ResponseEntity<ParkingSlot> updateAvailability(@PathVariable Long id) {
-        ParkingSlot updatedSlot = parkingSlotService.updateAvailability(id);
+    @PutMapping("/update/true/{id}")
+    public ResponseEntity<ParkingSlot> updateAvailabilityTrue(@PathVariable Long id) {
+        ParkingSlot updatedSlot = parkingSlotService.updateAvailabilityTrue(id);
+        return new ResponseEntity<>(updatedSlot, HttpStatus.OK);
+    }
+
+    @PutMapping("/update/false/{id}")
+    public ResponseEntity<ParkingSlot> updateAvailabilityFalse(@PathVariable Long id,
+                                                               @RequestBody Map<String, Boolean> availabilityMap) {
+        Boolean availability = availabilityMap.get("availability");
+        if (availability == null) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        ParkingSlot updatedSlot = parkingSlotService.updateAvailabilityFalse(id);
         return new ResponseEntity<>(updatedSlot, HttpStatus.OK);
     }
 
@@ -60,6 +71,7 @@ public class ParkingSlotController {
                 .map(slot -> new ResponseEntity<>(slot.getName(), HttpStatus.OK))
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
+
     @GetMapping("/availability/{id}")
     public ResponseEntity<Boolean> getParkingSlotAvailabilityById(@PathVariable Long id) {
         Optional<ParkingSlot> parkingSlot = parkingSlotService.getParkingSlotById(id);

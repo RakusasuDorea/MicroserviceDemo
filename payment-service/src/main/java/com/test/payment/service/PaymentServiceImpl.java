@@ -86,9 +86,7 @@ public class PaymentServiceImpl implements PaymentService {
     }
 
     private void updateAvailability(Long slotId) {
-//        String slotUpdateUrl = discoveryClient.getInstances("parkingslot-service").get(0).getUri().toString()
-//                + "parkingslot/update/" + slotId;
-        String slotUpdateUrl = "http://parkingslot-service/parkingslot/update/" + slotId;
+        String slotUpdateUrl = "http://parkingslot-service/parkingslot/update/false/" + slotId;
         Map<String, Object> requestBody = new HashMap<>();
         requestBody.put("availability", false);
         try {
@@ -97,5 +95,6 @@ public class PaymentServiceImpl implements PaymentService {
             throw new RuntimeException("Error updating parking slot availability", e);
         }
     }
+
 
 }

@@ -8,7 +8,9 @@ import java.util.Optional;
 public interface ParkingSlotService {
     ParkingSlot createParkingSlot(ParkingSlot parkingSlot);
 
-    ParkingSlot updateAvailability(Long id);
+    ParkingSlot updateAvailabilityTrue(Long id);
+
+    ParkingSlot updateAvailabilityFalse(Long id);
 
     List<ParkingSlot> getAllParkingSlots();
 

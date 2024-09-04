@@ -12,6 +12,7 @@ public class PaymentSerializer extends JsonSerializer<Payment> {
     @Override
     public void serialize(Payment payment, JsonGenerator gen, SerializerProvider serializers) throws IOException {
         gen.writeStartObject();
+        gen.writeNumberField("id", payment.getId());
         gen.writeStringField("transportName", payment.getTransportName());
         gen.writeStringField("slotName", payment.getSlotName());
         gen.writeNumberField("price", payment.getPrice());
