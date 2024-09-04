@@ -4,15 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="576bb5b1-2b28-4184-9bfb-3c97f5e95dd8" name="Changes" comment="Fix Payment.puml">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+    <list default="true" id="576bb5b1-2b28-4184-9bfb-3c97f5e95dd8" name="Changes" comment="Fix Payment Service, Parking Slot Service">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parkingslot-service/src/main/java/com/test/parkingslot/controller/ParkingSlotController.java" beforeDir="false" afterPath="$PROJECT_DIR$/parkingslot-service/src/main/java/com/test/parkingslot/controller/ParkingSlotController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/payment-service/src/main/java/com/test/payment/config/AppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/src/main/java/com/test/payment/config/AppConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/payment-service/src/main/java/com/test/payment/service/PaymentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/src/main/java/com/test/payment/service/PaymentServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/transport-service/src/main/java/com/test/transport/config/AppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/transport-service/src/main/java/com/test/transport/config/AppConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zuul-service/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/zuul-service/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zuul-service/target/classes/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/zuul-service/target/classes/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parkingslot-service/src/main/java/com/test/parkingslot/service/ParkingSlotService.java" beforeDir="false" afterPath="$PROJECT_DIR$/parkingslot-service/src/main/java/com/test/parkingslot/service/ParkingSlotService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parkingslot-service/src/main/java/com/test/parkingslot/service/ParkingSlotServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/parkingslot-service/src/main/java/com/test/parkingslot/service/ParkingSlotServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/postman-collection/Api-Gateway.postman_collection.json" beforeDir="false" afterPath="$PROJECT_DIR$/postman-collection/Api-Gateway.postman_collection.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -332,7 +329,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725418416862</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Fix Payment Service, Parking Slot Service">
+      <option name="closed" value="true" />
+      <created>1725418563442</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1725418563442</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -361,6 +366,7 @@
     <MESSAGE value="ParkingSlot.puml" />
     <MESSAGE value="Payment.puml" />
     <MESSAGE value="Fix Payment.puml" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix Payment.puml" />
+    <MESSAGE value="Fix Payment Service, Parking Slot Service" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix Payment Service, Parking Slot Service" />
   </component>
 </project>

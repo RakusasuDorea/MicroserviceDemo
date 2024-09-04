@@ -25,11 +25,11 @@ public class ParkingSlotServiceImpl implements ParkingSlotService {
     }
 
     @Override
-    public ParkingSlot updateAvailability(Long id, boolean availability) {
+    public ParkingSlot updateAvailability(Long id) {
         ParkingSlot slot = parkingSlotRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Parking slot not found with id " + id));
 
-        slot.setAvailability(availability);
+        slot.setAvailability(true);
         return parkingSlotRepository.save(slot);
     }
 
@@ -43,8 +43,4 @@ public class ParkingSlotServiceImpl implements ParkingSlotService {
         return parkingSlotRepository.findById(id);
     }
 
-    @Override
-    public Optional<ParkingSlot> getParkingSlotNameById(Long id){
-        return parkingSlotRepository.findById(id);
-    }
 }

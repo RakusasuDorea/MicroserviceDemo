@@ -35,9 +35,8 @@ public class ParkingSlotController {
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<ParkingSlot> updateAvailability(@PathVariable Long id, @RequestBody Map<String, Object> requestBody) {
-        boolean availability = (boolean) requestBody.get("availability");
-        ParkingSlot updatedSlot = parkingSlotService.updateAvailability(id, availability);
+    public ResponseEntity<ParkingSlot> updateAvailability(@PathVariable Long id) {
+        ParkingSlot updatedSlot = parkingSlotService.updateAvailability(id);
         return new ResponseEntity<>(updatedSlot, HttpStatus.OK);
     }
 

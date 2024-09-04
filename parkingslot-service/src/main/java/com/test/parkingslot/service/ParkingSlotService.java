@@ -8,11 +8,10 @@ import java.util.Optional;
 public interface ParkingSlotService {
     ParkingSlot createParkingSlot(ParkingSlot parkingSlot);
 
-    ParkingSlot updateAvailability(Long id, boolean availability);
+    ParkingSlot updateAvailability(Long id);
 
     List<ParkingSlot> getAllParkingSlots();
 
     Optional<ParkingSlot> getParkingSlotById(Long id);
 
-    Optional<ParkingSlot> getParkingSlotNameById(Long id);
 }
