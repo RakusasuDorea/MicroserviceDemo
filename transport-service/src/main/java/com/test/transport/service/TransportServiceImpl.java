@@ -35,13 +35,4 @@ public class TransportServiceImpl implements TransportService {
         return transportRepository.findById(id);
     }
 
-    @Override
-    public Optional<Transport> getTransportNameById(Long id) {
-        return transportRepository.findById(id);
-    }
-
-    @Override
-    public Optional<Transport> getTransportTypeById(Long id) {
-        return transportRepository.findById(id);
-    }
 }

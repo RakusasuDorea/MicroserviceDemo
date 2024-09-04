@@ -12,7 +12,4 @@ public interface TransportService {
 
     Optional<Transport> getTransportById(Long id);
 
-    Optional<Transport> getTransportNameById(Long id);
-
-    Optional<Transport> getTransportTypeById(Long id);
 }
