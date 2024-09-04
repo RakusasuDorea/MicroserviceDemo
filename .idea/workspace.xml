@@ -4,16 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="576bb5b1-2b28-4184-9bfb-3c97f5e95dd8" name="Changes" comment="Postman Collection">
+    <list default="true" id="576bb5b1-2b28-4184-9bfb-3c97f5e95dd8" name="Changes" comment="Fix Payment.puml">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parkingslot-service/src/main/java/com/test/parkingslot/controller/ParkingSlotController.java" beforeDir="false" afterPath="$PROJECT_DIR$/parkingslot-service/src/main/java/com/test/parkingslot/controller/ParkingSlotController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parkingslot-service/src/main/java/com/test/parkingslot/service/ParkingSlotService.java" beforeDir="false" afterPath="$PROJECT_DIR$/parkingslot-service/src/main/java/com/test/parkingslot/service/ParkingSlotService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parkingslot-service/src/main/java/com/test/parkingslot/service/ParkingSlotServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/parkingslot-service/src/main/java/com/test/parkingslot/service/ParkingSlotServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment-service/src/main/java/com/test/payment/config/AppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/src/main/java/com/test/payment/config/AppConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/payment-service/src/main/java/com/test/payment/service/PaymentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/src/main/java/com/test/payment/service/PaymentServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/transport-service/src/main/java/com/test/transport/controller/TransportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/transport-service/src/main/java/com/test/transport/controller/TransportController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/transport-service/src/main/java/com/test/transport/service/TransportService.java" beforeDir="false" afterPath="$PROJECT_DIR$/transport-service/src/main/java/com/test/transport/service/TransportService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/transport-service/src/main/java/com/test/transport/service/TransportServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/transport-service/src/main/java/com/test/transport/service/TransportServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/transport-service/target/classes/com/test/transport/controller/TransportController.class" beforeDir="false" afterPath="$PROJECT_DIR$/transport-service/target/classes/com/test/transport/controller/TransportController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/transport-service/src/main/java/com/test/transport/config/AppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/transport-service/src/main/java/com/test/transport/config/AppConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zuul-service/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/zuul-service/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zuul-service/target/classes/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/zuul-service/target/classes/application.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +85,7 @@
     "Spring Boot.ParkingSlotService.executor": "Run",
     "Spring Boot.ParkingSlotServiceApplication.executor": "Run",
     "Spring Boot.PaymentService.executor": "Run",
-    "Spring Boot.PaymentServiceApplication.executor": "Debug",
+    "Spring Boot.PaymentServiceApplication.executor": "Run",
     "Spring Boot.TransportService.executor": "Run",
     "Spring Boot.TransportServiceApplication.executor": "Run",
     "Spring Boot.ZuulService.executor": "Run",
@@ -150,7 +149,20 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.ParkingSlotServiceApplication">
+  <component name="RunManager" selected="Spring Boot.PaymentServiceApplication">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="zuul-test" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="zuul-test" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="CustomerService" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="customer-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.test.customer.CustomerService" />
@@ -288,7 +300,39 @@
       <option name="project" value="LOCAL" />
       <updated>1725175473662</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Transport.puml">
+      <option name="closed" value="true" />
+      <created>1725344224077</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1725344224077</updated>
+    </task>
+    <task id="LOCAL-00009" summary="ParkingSlot.puml">
+      <option name="closed" value="true" />
+      <created>1725344386418</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1725344386418</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Payment.puml">
+      <option name="closed" value="true" />
+      <created>1725344630518</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1725344630518</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Fix Payment.puml">
+      <option name="closed" value="true" />
+      <created>1725418416862</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1725418416862</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -313,6 +357,10 @@
     <MESSAGE value="Fix Naming Conventions, Best Practices, UML" />
     <MESSAGE value="Fix the url error" />
     <MESSAGE value="Postman Collection" />
-    <option name="LAST_COMMIT_MESSAGE" value="Postman Collection" />
+    <MESSAGE value="Transport.puml" />
+    <MESSAGE value="ParkingSlot.puml" />
+    <MESSAGE value="Payment.puml" />
+    <MESSAGE value="Fix Payment.puml" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix Payment.puml" />
   </component>
 </project>

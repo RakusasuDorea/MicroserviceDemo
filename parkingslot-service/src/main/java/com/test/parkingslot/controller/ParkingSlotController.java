@@ -55,10 +55,17 @@ public class ParkingSlotController {
     }
 
     @GetMapping("/name/{id}")
-    public ResponseEntity<String> getParkingSlotByName(@PathVariable Long id) {
+    public ResponseEntity<String> getParkingSlotNameById(@PathVariable Long id) {
         Optional<ParkingSlot> parkingSlot = parkingSlotService.getParkingSlotById(id);
         return parkingSlot
-                .map(t -> new ResponseEntity<>(t.getName(), HttpStatus.OK))
+                .map(slot -> new ResponseEntity<>(slot.getName(), HttpStatus.OK))
+                .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
+    @GetMapping("/availability/{id}")
+    public ResponseEntity<Boolean> getParkingSlotAvailabilityById(@PathVariable Long id) {
+        Optional<ParkingSlot> parkingSlot = parkingSlotService.getParkingSlotById(id);
+        return parkingSlot
+                .map(slot -> new ResponseEntity<>(slot.getAvailability(), HttpStatus.OK))
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 }

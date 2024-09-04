@@ -14,7 +14,7 @@ eureka:
     instance:
       hostname: localhost
 
-Zuul:
+zuul:
   prefix: /api
   routes:
     transport-service:
@@ -25,4 +25,17 @@ Zuul:
       serviceId: parkingslot-service
     payment-service:
       path: /payment/**
-      service-id: payment-service
+      serviceId: payment-service
+
+  # Timeout settings for Zuul
+  host:
+    socket-timeout-millis: 60000  # Socket timeout (60 seconds)
+    connect-timeout-millis: 60000 # Connection timeout (60 seconds)
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000  # Hystrix timeout (60 seconds)
