@@ -62,7 +62,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8000/api/transport/transport/2",
+					"raw": "localhost:8000/api/transport/transport/id",
 					"host": [
 						"localhost"
 					],
@@ -71,7 +71,51 @@
 						"api",
 						"transport",
 						"transport",
-						"2"
+						"id"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Transport Name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/api/transport/transport/name/id",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"transport",
+						"transport",
+						"name",
+						"id"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Transport Type",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/api/transport/transport/type/id",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"transport",
+						"transport",
+						"type",
+						"id"
 					]
 				}
 			},
@@ -112,17 +156,8 @@
 			"request": {
 				"method": "PUT",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \"availability\": true\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
-					"raw": "localhost:8000/api/parkingslot/parkingslot/update/3",
+					"raw": "localhost:8000/api/parkingslot/parkingslot/update/id",
 					"host": [
 						"localhost"
 					],
@@ -132,7 +167,7 @@
 						"parkingslot",
 						"parkingslot",
 						"update",
-						"3"
+						"id"
 					]
 				}
 			},
@@ -164,7 +199,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8000/api/parkingslot/parkingslot/4",
+					"raw": "localhost:8000/api/parkingslot/parkingslot/id",
 					"host": [
 						"localhost"
 					],
@@ -173,7 +208,52 @@
 						"api",
 						"parkingslot",
 						"parkingslot",
-						"4"
+						"id"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Parking Slot Name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/api/parkingslot/parkingslot/name/id",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"parkingslot",
+						"parkingslot",
+						"name",
+						"id"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Parking Slot Availability",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/parkingslot/parkingslot/availability/id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"parkingslot",
+						"parkingslot",
+						"availability",
+						"id"
 					]
 				}
 			},
@@ -186,7 +266,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"transportId\": 1,\r\n  \"slotId\": 1,\r\n}\r\n",
+					"raw": "{\r\n  \"transportId\": 1,\r\n  \"slotId\": 1\r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
