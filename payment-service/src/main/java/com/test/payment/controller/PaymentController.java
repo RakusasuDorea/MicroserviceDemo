@@ -49,7 +49,7 @@ public class PaymentController {
         public ResponseEntity<String> deletePayment(@PathVariable Long id) {
             try {
                 paymentService.deletePayment(id);
-                return new ResponseEntity<>("Payment deleted successfully", HttpStatus.NO_CONTENT);
+                return new ResponseEntity<>("Payment deleted successfully", HttpStatus.OK);
             } catch (Exception e) {
                 return new ResponseEntity<>("Error deleting payment: " + e.getMessage(), HttpStatus.BAD_REQUEST);
             }
