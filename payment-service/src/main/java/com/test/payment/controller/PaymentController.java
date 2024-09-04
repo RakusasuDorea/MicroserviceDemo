@@ -44,5 +44,15 @@ public class PaymentController {
         return payment.map(slot -> new ResponseEntity<>(slot, HttpStatus.OK))
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
+
+        @DeleteMapping("/delete/{id}")
+        public ResponseEntity<String> deletePayment(@PathVariable Long id) {
+            try {
+                paymentService.deletePayment(id);
+                return new ResponseEntity<>("Payment deleted successfully", HttpStatus.NO_CONTENT);
+            } catch (Exception e) {
+                return new ResponseEntity<>("Error deleting payment: " + e.getMessage(), HttpStatus.BAD_REQUEST);
+            }
+        }
 }
 

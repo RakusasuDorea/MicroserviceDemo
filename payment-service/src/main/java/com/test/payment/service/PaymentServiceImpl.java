@@ -5,8 +5,6 @@ import com.test.payment.repository.PaymentRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.List;
 import java.util.Optional;
 
@@ -62,16 +60,6 @@ public class PaymentServiceImpl implements PaymentService {
         }
     }
 
-    @Override
-    public List<Payment> getAllPayments() {
-        return paymentRepository.findAll();
-    }
-
-    @Override
-    public Optional<Payment> getPaymentById(Long id) {
-        return paymentRepository.findById(id);
-    }
-
     private int calculatePrice(String transportType) {
         switch (transportType) {
             case "Light":
@@ -87,12 +75,41 @@ public class PaymentServiceImpl implements PaymentService {
 
     private void updateAvailability(Long slotId) {
         String slotUpdateUrl = "http://parkingslot-service/parkingslot/update/false/" + slotId;
-        Map<String, Object> requestBody = new HashMap<>();
-        requestBody.put("availability", false);
         try {
-            restTemplate.put(slotUpdateUrl, requestBody);
+            restTemplate.put(slotUpdateUrl, null);
         } catch (RestClientException e) {
             throw new RuntimeException("Error updating parking slot availability", e);
+        }
+    }
+
+    @Override
+    public List<Payment> getAllPayments() {
+        return paymentRepository.findAll();
+    }
+
+    @Override
+    public Optional<Payment> getPaymentById(Long id) {
+        return paymentRepository.findById(id);
+    }
+
+    @Override
+    public void deletePayment(Long id) {
+        Optional<Payment> paymentOptional = paymentRepository.findById(id);
+        if (paymentOptional.isPresent()) {
+            Payment payment = paymentOptional.get();
+            revertAvailability(payment.getSlotId());
+            paymentRepository.deleteById(id);
+        } else {
+            throw new RuntimeException("Payment not found with id " + id);
+        }
+    }
+
+    private void revertAvailability(Long slotId) {
+        String slotUpdateUrl = "http://parkingslot-service/parkingslot/update/true/" + slotId;
+        try {
+            restTemplate.put(slotUpdateUrl, null);
+        } catch (RestClientException e) {
+            throw new RuntimeException("Error reverting parking slot availability", e);
         }
     }
 
