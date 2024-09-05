@@ -22,14 +22,9 @@ public class PaymentController {
 
     @PostMapping("/create")
     public ResponseEntity<String> createPayment(@RequestBody Payment payment) {
-        try {
             Payment createdPayment = paymentService.createPayment(payment);
             String message = "Payment created successfully with ID: " + createdPayment.getId();
             return new ResponseEntity<>(message, HttpStatus.CREATED);
-        } catch (Exception e) {
-            String errorMessage = "Error creating payment: " + e.getMessage();
-            return new ResponseEntity<>(errorMessage, HttpStatus.BAD_REQUEST);
-        }
     }
 
     @GetMapping
@@ -47,12 +42,8 @@ public class PaymentController {
 
         @DeleteMapping("/delete/{id}")
         public ResponseEntity<String> deletePayment(@PathVariable Long id) {
-            try {
                 paymentService.deletePayment(id);
                 return new ResponseEntity<>("Payment deleted successfully", HttpStatus.OK);
-            } catch (Exception e) {
-                return new ResponseEntity<>("Error deleting payment: " + e.getMessage(), HttpStatus.BAD_REQUEST);
-            }
         }
 }
 

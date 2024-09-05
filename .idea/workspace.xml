@@ -4,37 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="576bb5b1-2b28-4184-9bfb-3c97f5e95dd8" name="Changes" comment="remove space">
-      <change afterPath="$PROJECT_DIR$/parkingslot-service/target/classes/application.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/parkingslot-service/target/classes/com/test/parkingslot/ParkingSlotServiceApplication.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/parkingslot-service/target/classes/com/test/parkingslot/config/AppConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/parkingslot-service/target/classes/com/test/parkingslot/controller/ParkingSlotController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/parkingslot-service/target/classes/com/test/parkingslot/model/ParkingSlot.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/parkingslot-service/target/classes/com/test/parkingslot/repository/ParkingSlotRepository.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/parkingslot-service/target/classes/com/test/parkingslot/service/ParkingSlotService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/parkingslot-service/target/classes/com/test/parkingslot/service/ParkingSlotServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/parkingslot-service/target/maven-archiver/pom.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/parkingslot-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/parkingslot-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/parkingslot-service/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/parkingslot-service/target/parkingslot-service-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/parkingslot-service/target/parkingslot-service-1.0-SNAPSHOT.jar.original" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment-service/target/classes/application.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment-service/target/classes/com/test/payment/PaymentServiceApplication.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment-service/target/classes/com/test/payment/config/AppConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment-service/target/classes/com/test/payment/controller/PaymentController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment-service/target/classes/com/test/payment/model/Payment.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment-service/target/classes/com/test/payment/repository/PaymentRepository.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment-service/target/classes/com/test/payment/serializer/PaymentSerializer.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment-service/target/classes/com/test/payment/service/PaymentService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment-service/target/classes/com/test/payment/service/PaymentServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment-service/target/maven-archiver/pom.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment-service/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment-service/target/payment-service-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment-service/target/payment-service-1.0-SNAPSHOT.jar.original" afterDir="false" />
+    <list default="true" id="576bb5b1-2b28-4184-9bfb-3c97f5e95dd8" name="Changes" comment="gitignore">
+      <change afterPath="$PROJECT_DIR$/payment-service/src/main/java/com/test/payment/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payment-service/src/main/java/com/test/payment/service/CalculatePriceInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payment-service/src/main/java/com/test/payment/service/DefaultCalculatePrice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payment-service/src/main/java/com/test/payment/service/VipCalculatePrice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eureka-server/target/eureka-server-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-server/target/eureka-server-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eureka-server/target/eureka-server-1.0-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-server/target/eureka-server-1.0-SNAPSHOT.jar.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parkingslot-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/parkingslot-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parkingslot-service/src/main/java/com/test/parkingslot/model/ParkingSlot.java" beforeDir="false" afterPath="$PROJECT_DIR$/parkingslot-service/src/main/java/com/test/parkingslot/model/ParkingSlot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment-service/src/main/java/com/test/payment/controller/PaymentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/src/main/java/com/test/payment/controller/PaymentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/payment-service/src/main/java/com/test/payment/service/PaymentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/src/main/java/com/test/payment/service/PaymentServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment-service/src/uml/Payment.puml" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/src/uml/Payment.puml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/transport-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/transport-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/transport-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/transport-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/transport-service/target/transport-service-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/transport-service/target/transport-service-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/transport-service/target/transport-service-1.0-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/transport-service/target/transport-service-1.0-SNAPSHOT.jar.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zuul-service/target/zuul-service-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/zuul-service/target/zuul-service-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zuul-service/target/zuul-service-1.0-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/zuul-service/target/zuul-service-1.0-SNAPSHOT.jar.original" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,8 +35,8 @@
       <list>
         <option value="AnnotationType" />
         <option value="UML Sequence" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -107,7 +96,7 @@
     "Spring Boot.ParkingSlotService.executor": "Run",
     "Spring Boot.ParkingSlotServiceApplication.executor": "Run",
     "Spring Boot.PaymentService.executor": "Run",
-    "Spring Boot.PaymentServiceApplication.executor": "Run",
+    "Spring Boot.PaymentServiceApplication.executor": "Debug",
     "Spring Boot.TransportService.executor": "Run",
     "Spring Boot.TransportServiceApplication.executor": "Run",
     "Spring Boot.ZuulService.executor": "Run",
@@ -124,7 +113,7 @@
     "project.structure.side.proportion": "0.2",
     "run.configurations.included.in.services": "true",
     "service.view.auto.scroll.to.source": "true",
-    "settings.editor.selected.configurable": "editor.stickyLines",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -157,8 +146,8 @@
   </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
-      <command value="mvn clean install" />
       <command value="mvn spring-boot:run" />
+      <command value="mvn clean install" />
     </option>
   </component>
   <component name="RunDashboard">
@@ -450,7 +439,31 @@
       <option name="project" value="LOCAL" />
       <updated>1725440497434</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="remove space">
+      <option name="closed" value="true" />
+      <created>1725440742741</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1725440742741</updated>
+    </task>
+    <task id="LOCAL-00025" summary="remove space`">
+      <option name="closed" value="true" />
+      <created>1725440794060</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1725440794060</updated>
+    </task>
+    <task id="LOCAL-00026" summary="gitignore">
+      <option name="closed" value="true" />
+      <created>1725441206284</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1725441206284</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -468,8 +481,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="First Commit - Aug 28" />
-    <MESSAGE value="Second Commit : Aug 30" />
     <MESSAGE value="Remove other modules" />
     <MESSAGE value="Add exception in createTransport" />
     <MESSAGE value="Fix Naming Conventions, Best Practices, UML" />
@@ -492,6 +503,70 @@
     <MESSAGE value="update Payment.puml" />
     <MESSAGE value="update controller" />
     <MESSAGE value="remove space" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove space" />
+    <MESSAGE value="remove space`" />
+    <MESSAGE value="." />
+    <MESSAGE value="gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="gitignore" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/payment-service/src/main/java/com/test/payment/service/PaymentServiceImpl.java</url>
+          <line>48</line>
+          <option name="timeStamp" value="54" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/payment-service/src/main/java/com/test/payment/service/PaymentServiceImpl.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="57" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/payment-service/src/main/java/com/test/payment/service/PaymentServiceImpl.java</url>
+          <line>38</line>
+          <option name="timeStamp" value="58" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/payment-service/src/main/java/com/test/payment/service/PaymentServiceImpl.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="59" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/payment-service/src/main/java/com/test/payment/service/PaymentServiceImpl.java</url>
+          <line>51</line>
+          <option name="timeStamp" value="61" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/payment-service/src/main/java/com/test/payment/service/PaymentServiceImpl.java</url>
+          <line>50</line>
+          <option name="timeStamp" value="62" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/payment-service/src/main/java/com/test/payment/service/PaymentServiceImpl.java</url>
+          <line>45</line>
+          <option name="timeStamp" value="64" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/payment-service/src/main/java/com/test/payment/service/PaymentServiceImpl.java</url>
+          <line>58</line>
+          <option name="timeStamp" value="65" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/payment-service/src/main/java/com/test/payment/service/PaymentServiceImpl.java</url>
+          <line>56</line>
+          <option name="timeStamp" value="66" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/payment-service/src/main/java/com/test/payment/service/PaymentServiceImpl.java</url>
+          <line>53</line>
+          <option name="timeStamp" value="67" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/payment-service/src/main/java/com/test/payment/service/PaymentServiceImpl.java</url>
+          <line>54</line>
+          <option name="timeStamp" value="68" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

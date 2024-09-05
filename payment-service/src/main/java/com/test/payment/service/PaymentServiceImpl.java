@@ -2,84 +2,82 @@ package com.test.payment.service;
 
 import com.test.payment.model.Payment;
 import com.test.payment.repository.PaymentRepository;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 import java.util.List;
 import java.util.Optional;
+
+import com.test.transport.model.Transport;
+import com.test.parkingslot.model.ParkingSlot;
 
 @Service
 public class PaymentServiceImpl implements PaymentService {
 
     private final PaymentRepository paymentRepository;
-
     private final RestTemplate restTemplate;
 
-    public PaymentServiceImpl(PaymentRepository paymentRepository, RestTemplate restTemplate) {
+    private CalculatePriceInterface normalPricing;
+
+    private CalculatePriceInterface vipPricing;
+
+    public PaymentServiceImpl(PaymentRepository paymentRepository, RestTemplate restTemplate,
+                              CalculatePriceInterface normalPricing, @Qualifier("vipPricing") CalculatePriceInterface vipPricing) {
         this.paymentRepository = paymentRepository;
         this.restTemplate = restTemplate;
+        this.normalPricing = normalPricing;
+        this.vipPricing = vipPricing;
     }
 
     @Override
     public Payment createPayment(Payment payment) {
         try {
-            // Construct URLs for transport and slot services
-//            String transportNameUrl = discoveryClient.getInstances("transport-service").get(0).getUri().toString()
-//                    + "/transport/name/" + payment.getTransportId();
-//            String transportTypeUrl = discoveryClient.getInstances("transport-service").get(0).getUri().toString()
-//                    + "/transport/type/" + payment.getTransportId();
-//            String slotNameUrl = discoveryClient.getInstances("parkingslot-service").get(0).getUri().toString()
-//                    + "/parkingslot/name/" + payment.getSlotId();
-//            String slotAvailabilityUrl = discoveryClient.getInstances("parkingslot-service").get(0).getUri().toString()
-//                    + "/parkingslot/availability/" + payment.getSlotId();
-            String transportNameUrl = "http://transport-service/transport/name/" + payment.getTransportId();
-            String transportTypeUrl = "http://transport-service/transport/type/" + payment.getTransportId();
-            String slotNameUrl = "http://parkingslot-service/parkingslot/name/" + payment.getSlotId();
-            String slotAvailabilityUrl = "http://parkingslot-service/parkingslot/availability/" + payment.getSlotId();
+            String transportUrl = "http://transport-service/transport/" + payment.getTransportId();
+            String slotUrl = "http://parkingslot-service/parkingslot/" + payment.getSlotId();
 
-            String transportName = restTemplate.getForObject(transportNameUrl, String.class);
-            String transportType = restTemplate.getForObject(transportTypeUrl, String.class);
-            String slotName = restTemplate.getForObject(slotNameUrl, String.class );
-            Boolean slotAvailability = restTemplate.getForObject(slotAvailabilityUrl, Boolean.class);
+                Transport transport = restTemplate.getForObject(transportUrl, Transport.class);
+            ParkingSlot parkingSlot =  restTemplate.getForObject(slotUrl, ParkingSlot.class);
 
+            if(null == transport || null == parkingSlot) {
+                throw new RuntimeException("Transport or slot not found");
+            }
 
-            if (Boolean.FALSE.equals(slotAvailability)) {
+            if (!parkingSlot.getAvailability()) {
                 throw new RuntimeException("Parking slot is not available.");
             }
-            int calculatedPrice = calculatePrice(transportType);
+
+            CalculatePriceInterface calculatePrice = Boolean.TRUE.equals(parkingSlot.getVip()) ? vipPricing : normalPricing;
+
+            int calculatedPrice = calculatePrice.calculatePrice(transport.getType());
             payment.setPrice(calculatedPrice);
+
+            payment.setTransportName(transport.getName());
+            payment.setSlotName(parkingSlot.getName());
 
             updateAvailability(payment.getSlotId());
 
-            payment.setTransportName(transportName);
-            payment.setSlotName(slotName);
-
             return paymentRepository.save(payment);
-        } catch (Exception e) {
-            throw new RuntimeException(e.getMessage(), e);
+        }catch (Exception e){
+            throw new RuntimeException("Failed to create payment."+ e.getMessage(), e);
         }
     }
 
-    private int calculatePrice(String transportType) {
-        switch (transportType) {
-            case "Light":
-                return 50;
-            case "Medium":
-                return 100;
-            case "Heavy":
-                return 150;
-            default:
-                return 0;
-        }
-    }
+//    private int calculatePrice(String transportType) {
+//        switch (transportType) {
+//            case "Light":
+//                return 50;
+//            case "Medium":
+//                return 100;
+//            case "Heavy":
+//                return 150;
+//            default:
+//                return 0;
+//        }
+//    }
 
     private void updateAvailability(Long slotId) {
         String slotUpdateUrl = "http://parkingslot-service/parkingslot/update/false/" + slotId;
-        try {
-            restTemplate.put(slotUpdateUrl, null);
-        } catch (RestClientException e) {
-            throw new RuntimeException("Error updating parking slot availability", e);
-        }
+        restTemplate.put(slotUpdateUrl, null);
     }
 
     @Override
@@ -106,12 +104,6 @@ public class PaymentServiceImpl implements PaymentService {
 
     private void revertAvailability(Long slotId) {
         String slotUpdateUrl = "http://parkingslot-service/parkingslot/update/true/" + slotId;
-        try {
-            restTemplate.put(slotUpdateUrl, null);
-        } catch (RestClientException e) {
-            throw new RuntimeException("Error reverting parking slot availability", e);
-        }
+        restTemplate.put(slotUpdateUrl, null);
     }
-
-
 }
