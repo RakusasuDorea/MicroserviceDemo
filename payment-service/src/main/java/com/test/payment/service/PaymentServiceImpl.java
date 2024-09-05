@@ -17,9 +17,9 @@ public class PaymentServiceImpl implements PaymentService {
     private final PaymentRepository paymentRepository;
     private final RestTemplate restTemplate;
 
-    private CalculatePriceInterface normalPricing;
+    private final CalculatePriceInterface normalPricing;
 
-    private CalculatePriceInterface vipPricing;
+    private final CalculatePriceInterface vipPricing;
 
     public PaymentServiceImpl(PaymentRepository paymentRepository, RestTemplate restTemplate,
                               CalculatePriceInterface normalPricing, @Qualifier("vipPricing") CalculatePriceInterface vipPricing) {
