@@ -11,11 +11,11 @@ public class VipCalculatePrice implements CalculatePriceInterface{
     public int calculatePrice(String transportType) {
         switch (transportType) {
             case "Light":
-                return 750;
+                return 300;
             case "Medium":
-                return 1250;
+                return 600;
             case "Heavy":
-                return 1750 ;
+                return 900 ;
             default:
                 return 0;
         }
