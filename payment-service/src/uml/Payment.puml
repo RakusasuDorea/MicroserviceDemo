@@ -4,9 +4,11 @@ box "Payment Service" #LightBlue
     participant PaymentController
     participant PaymentServiceImpl
     participant PaymentRepository
+    participant DefaultCalculatePrice as "NormalPricing (@Primary)"
+    participant VipCalculatePrice as "VipPricing (@Qualifier)"
 end box
 
-box "External Services"
+box "External Services" #PaleGreen
     participant TransportService
     participant ParkingSlotService
 end box
@@ -24,11 +26,22 @@ deactivate TransportService
 
 PaymentServiceImpl -> ParkingSlotService: getSlotById(payment.getSlotId())
 activate ParkingSlotService
-ParkingSlotService -> PaymentServiceImpl: ParkingSlot (including name and availability)
+ParkingSlotService -> PaymentServiceImpl: ParkingSlot (including name, availability, and VIP status)
 deactivate ParkingSlotService
 
 alt Slot available
-    PaymentServiceImpl -> PaymentServiceImpl: calculatePrice(transport.getType())
+    alt Slot is VIP
+        PaymentServiceImpl -> VipCalculatePrice: calculatePrice(transport.getType())
+        activate VipCalculatePrice
+        VipCalculatePrice -> PaymentServiceImpl: price
+        deactivate VipCalculatePrice
+    else Slot is normal
+        PaymentServiceImpl -> DefaultCalculatePrice: calculatePrice(transport.getType())
+        activate DefaultCalculatePrice
+        DefaultCalculatePrice -> PaymentServiceImpl: price
+        deactivate DefaultCalculatePrice
+    end
+
     PaymentServiceImpl -> ParkingSlotService: updateSlotAvailabilityFalse(slotId)
     activate ParkingSlotService
     ParkingSlotService -> PaymentServiceImpl: Slot updated
@@ -42,7 +55,7 @@ alt Slot available
     PaymentServiceImpl -> PaymentController: Payment created
 else Slot not available
     PaymentServiceImpl --> PaymentController: Slot Not Available
-    deactivate PaymentServiceImpl
+deactivate PaymentServiceImpl
 end
 
 PaymentController -> User: Payment created or Slot Not Available
@@ -75,7 +88,7 @@ alt Payment exists
     PaymentController -> User: Payment (if found)
 else Payment not found
     PaymentController --> User: Payment Not Found
-    deactivate PaymentController
+deactivate PaymentController
 end
 
 User -> PaymentController: deletePayment(id)
@@ -101,7 +114,7 @@ alt Payment exists
     PaymentServiceImpl -> PaymentController: Payment deleted
 else Payment not found
     PaymentServiceImpl --> PaymentController: Payment Not Found
-    deactivate PaymentServiceImpl
+deactivate PaymentServiceImpl
 end
 PaymentController -> User: Payment deleted or Payment Not Found
 deactivate User
