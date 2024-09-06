@@ -1,11 +1,16 @@
 @startuml
 
 actor User
-participant PaymentController
-participant PaymentServiceImpl
-participant PaymentRepository
-participant TransportService
-participant ParkingSlotService
+box "Payment Service" #LightBlue
+    participant PaymentController
+    participant PaymentServiceImpl
+    participant PaymentRepository
+end box
+
+box "External Services"
+    participant TransportService
+    participant ParkingSlotService
+end box
 
 User -> PaymentController: createPayment(Payment)
 activate PaymentController
@@ -79,7 +84,7 @@ alt Payment exists
 else Payment not found
     PaymentController --> User: Payment Not Found
     deactivate PaymentController
-    deactivate User
+
 end
 
 User -> PaymentController: deletePayment(id)
@@ -102,5 +107,6 @@ else Payment not found
 end
 PaymentController -> User: Payment deleted or Payment Not Found
 deactivate PaymentController
+deactivate User
 
 @enduml
