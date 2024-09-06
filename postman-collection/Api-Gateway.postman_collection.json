@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\" : \"\",\r\n    \"type\" : \"\"\r\n}\r\n/*\r\n{\r\n    \"name\" : \"Motor\",\r\n    \"type\" : \"Light\"\r\n}\r\n{\r\n    \"name\" : \"Car\",\r\n    \"type\" : \"Medium\"\r\n}\r\n{\r\n    \"name\" : \"Truck\",\r\n    \"type\" : \"Heavy\"\r\n}\r\n*/",
+					"raw": "\r\n/*\r\n{\r\n    \"name\" : \"Motor\",\r\n    \"type\" : \"Light\"\r\n}\r\n{\r\n    \"name\" : \"Car\",\r\n    \"type\" : \"Medium\"\r\n}\r\n{\r\n    \"name\" : \"Truck\",\r\n    \"type\" : \"Heavy\"\r\n}\r\n*/",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -84,7 +84,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"name\": \"\",\r\n  \"availability\": \"\"\r\n}\r\n/*\r\n{\r\n  \"name\": \"Slot A1\",\r\n  \"availability\": true\r\n}\r\n{\r\n  \"name\": \"Slot A2\",\r\n  \"availability\": true\r\n}\r\n{\r\n  \"name\": \"Slot A3\",\r\n  \"availability\": true\r\n}\r\n*/",
+					"raw": "\r\n/*\r\n{\r\n  \"name\": \"Normal Slot A1\",\r\n  \"availability\": true,\r\n  \"vip\": false\r\n}\r\n{\r\n  \"name\": \"Normal Slot A2\",\r\n  \"availability\": true,\r\n  \"vip\": false\r\n}\r\n{\r\n  \"name\": \"VIP Slot A1\",\r\n  \"availability\": true,\r\n  \"vip\": true\r\n}\r\n{\r\n  \"name\": \"VIP Slot A2\",\r\n  \"availability\": true,\r\n  \"vip\": true\r\n}\r\n*/",
 					"options": {
 						"raw": {
 							"language": "json"
