@@ -25,20 +25,11 @@ public class ParkingSlotServiceImpl implements ParkingSlotService {
     }
 
     @Override
-    public ParkingSlot updateAvailabilityTrue(Long id) {
+    public ParkingSlot updateAvailability(Long id, Boolean availability) {
         ParkingSlot slot = parkingSlotRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Parking slot not found with id " + id));
+                .orElseThrow(() -> new RuntimeException("Parking slot not found with id: " + id));
 
-        slot.setAvailability(true);
-        return parkingSlotRepository.save(slot);
-    }
-
-    @Override
-    public ParkingSlot updateAvailabilityFalse(Long id) {
-        ParkingSlot slot = parkingSlotRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Parking slot not found with id " + id));
-
-        slot.setAvailability(false);
+        slot.setAvailability(availability);
         return parkingSlotRepository.save(slot);
     }
 

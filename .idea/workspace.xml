@@ -4,11 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="576bb5b1-2b28-4184-9bfb-3c97f5e95dd8" name="Changes" comment="fix Payment.puml">
+    <list default="true" id="576bb5b1-2b28-4184-9bfb-3c97f5e95dd8" name="Changes" comment="update pricing">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eureka-server/target/eureka-server-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-server/target/eureka-server-1.0-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eureka-server/target/eureka-server-1.0-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-server/target/eureka-server-1.0-SNAPSHOT.jar.original" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/payment-service/src/main/java/com/test/payment/service/VipCalculatePrice.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/src/main/java/com/test/payment/service/VipCalculatePrice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parkingslot-service/src/main/java/com/test/parkingslot/controller/ParkingSlotController.java" beforeDir="false" afterPath="$PROJECT_DIR$/parkingslot-service/src/main/java/com/test/parkingslot/controller/ParkingSlotController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parkingslot-service/src/main/java/com/test/parkingslot/service/ParkingSlotService.java" beforeDir="false" afterPath="$PROJECT_DIR$/parkingslot-service/src/main/java/com/test/parkingslot/service/ParkingSlotService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parkingslot-service/src/main/java/com/test/parkingslot/service/ParkingSlotServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/parkingslot-service/src/main/java/com/test/parkingslot/service/ParkingSlotServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parkingslot-service/src/uml/ParkingSlot.puml" beforeDir="false" afterPath="$PROJECT_DIR$/parkingslot-service/src/uml/ParkingSlot.puml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/transport-service/target/classes/com/test/transport/controller/TransportController.class" beforeDir="false" afterPath="$PROJECT_DIR$/transport-service/target/classes/com/test/transport/controller/TransportController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/transport-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/transport-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/transport-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/transport-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
@@ -527,7 +530,23 @@
       <option name="project" value="LOCAL" />
       <updated>1725590348770</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="update postman collection">
+      <option name="closed" value="true" />
+      <created>1725593822939</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1725593822939</updated>
+    </task>
+    <task id="LOCAL-00037" summary="update pricing">
+      <option name="closed" value="true" />
+      <created>1725593856767</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1725593856767</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -545,8 +564,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Payment.puml" />
-    <MESSAGE value="Fix Payment.puml" />
     <MESSAGE value="Fix Payment Service, Parking Slot Service" />
     <MESSAGE value="Updated Postman Collection" />
     <MESSAGE value="Updated Parking Slot Service" />
@@ -570,6 +587,8 @@
     <MESSAGE value="fix the ParkingSlot.puml" />
     <MESSAGE value="fix Transport.puml" />
     <MESSAGE value="fix Payment.puml" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix Payment.puml" />
+    <MESSAGE value="update postman collection" />
+    <MESSAGE value="update pricing" />
+    <option name="LAST_COMMIT_MESSAGE" value="update pricing" />
   </component>
 </project>

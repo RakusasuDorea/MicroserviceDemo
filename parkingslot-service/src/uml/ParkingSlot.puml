@@ -18,38 +18,21 @@ deactivate ParkingSlotServiceImpl
 ParkingSlotController -> User: ParkingSlot created
 deactivate ParkingSlotController
 
-User -> ParkingSlotController: updateAvailabilityTrue(id)
+User -> ParkingSlotController: updateAvailability(id, availability)
 activate ParkingSlotController
-ParkingSlotController -> ParkingSlotServiceImpl: updateAvailabilityTrue(id)
+ParkingSlotController -> ParkingSlotServiceImpl: updateAvailability(id, availability)
 activate ParkingSlotServiceImpl
 ParkingSlotServiceImpl -> ParkingSlotRepository: findById(id)
 activate ParkingSlotRepository
 ParkingSlotRepository --> ParkingSlotServiceImpl: Optional<ParkingSlot>
 deactivate ParkingSlotRepository
-ParkingSlotServiceImpl -> ParkingSlotRepository: save(ParkingSlot with availability true)
+ParkingSlotServiceImpl -> ParkingSlotRepository: save(ParkingSlot with updated availability)
 activate ParkingSlotRepository
 ParkingSlotRepository -> ParkingSlotServiceImpl: ParkingSlot updated
 deactivate ParkingSlotRepository
 ParkingSlotServiceImpl -> ParkingSlotController: ParkingSlot updated
 deactivate ParkingSlotServiceImpl
-ParkingSlotController -> User: ParkingSlot updated to true
-deactivate ParkingSlotController
-
-User -> ParkingSlotController: updateAvailabilityFalse(id)
-activate ParkingSlotController
-ParkingSlotController -> ParkingSlotServiceImpl: updateAvailabilityFalse(id)
-activate ParkingSlotServiceImpl
-ParkingSlotServiceImpl -> ParkingSlotRepository: findById(id)
-activate ParkingSlotRepository
-ParkingSlotRepository --> ParkingSlotServiceImpl: Optional<ParkingSlot>
-deactivate ParkingSlotRepository
-ParkingSlotServiceImpl -> ParkingSlotRepository: save(ParkingSlot with availability false)
-activate ParkingSlotRepository
-ParkingSlotRepository -> ParkingSlotServiceImpl: ParkingSlot updated
-deactivate ParkingSlotRepository
-ParkingSlotServiceImpl -> ParkingSlotController: ParkingSlot updated
-deactivate ParkingSlotServiceImpl
-ParkingSlotController -> User: ParkingSlot updated to false
+ParkingSlotController -> User: ParkingSlot updated to availability value
 deactivate ParkingSlotController
 
 User -> ParkingSlotController: getAllParkingSlots()

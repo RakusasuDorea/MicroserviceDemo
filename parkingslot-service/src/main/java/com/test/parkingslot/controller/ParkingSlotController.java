@@ -33,15 +33,11 @@ public class ParkingSlotController {
         }
     }
 
-    @PutMapping("/update/true/{id}")
-    public ResponseEntity<ParkingSlot> updateAvailabilityTrue(@PathVariable Long id) {
-        ParkingSlot updatedSlot = parkingSlotService.updateAvailabilityTrue(id);
-        return new ResponseEntity<>(updatedSlot, HttpStatus.OK);
-    }
+    @PutMapping("/update/{availability}/{id}")
+    public ResponseEntity<ParkingSlot> updateAvailability(@PathVariable Long id,
+                                                              @PathVariable Boolean availability) {
 
-    @PutMapping("/update/false/{id}")
-    public ResponseEntity<ParkingSlot> updateAvailabilityFalse(@PathVariable Long id) {
-        ParkingSlot updatedSlot = parkingSlotService.updateAvailabilityFalse(id);
+        ParkingSlot updatedSlot = parkingSlotService.updateAvailability(id,availability);
         return new ResponseEntity<>(updatedSlot, HttpStatus.OK);
     }
 
