@@ -50,40 +50,4 @@ else Transport not found
     deactivate User
 end
 
-User -> TransportController: getTransportNameById(id)
-activate TransportController
-alt Transport exists
-    TransportController -> TransportServiceImpl: getTransportById(id)
-    activate TransportServiceImpl
-    TransportServiceImpl -> TransportRepository: findById(id)
-    activate TransportRepository
-    TransportRepository -> TransportServiceImpl: Optional<Transport>
-    deactivate TransportRepository
-    TransportServiceImpl -> TransportController: Optional<Transport>
-    deactivate TransportServiceImpl
-    TransportController -> User: Transport Name (if found) or Not Found
-else Transport not found
-    TransportController --> User: Transport Not Found
-    deactivate TransportController
-    deactivate User
-end
-
-User -> TransportController: getTransportTypeById(id)
-activate TransportController
-alt Transport exists
-    TransportController -> TransportServiceImpl: getTransportById(id)
-    activate TransportServiceImpl
-    TransportServiceImpl -> TransportRepository: findById(id)
-    activate TransportRepository
-    TransportRepository -> TransportServiceImpl: Optional<Transport>
-    deactivate TransportRepository
-    TransportServiceImpl -> TransportController: Optional<Transport>
-    deactivate TransportServiceImpl
-    TransportController -> User: Transport Type (if found) or Not Found
-else Transport not found
-    TransportController --> User: Transport Not Found
-    deactivate TransportController
-    deactivate User
-end
-
 @enduml

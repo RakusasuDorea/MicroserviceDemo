@@ -4,20 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="576bb5b1-2b28-4184-9bfb-3c97f5e95dd8" name="Changes" comment="gitignore">
-      <change afterPath="$PROJECT_DIR$/payment-service/src/main/java/com/test/payment/exception/GlobalExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment-service/src/main/java/com/test/payment/service/CalculatePriceInterface.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment-service/src/main/java/com/test/payment/service/DefaultCalculatePrice.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment-service/src/main/java/com/test/payment/service/VipCalculatePrice.java" afterDir="false" />
+    <list default="true" id="576bb5b1-2b28-4184-9bfb-3c97f5e95dd8" name="Changes" comment="fix the ParkingSlot.puml">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eureka-server/target/eureka-server-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-server/target/eureka-server-1.0-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eureka-server/target/eureka-server-1.0-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-server/target/eureka-server-1.0-SNAPSHOT.jar.original" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parkingslot-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/parkingslot-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parkingslot-service/src/main/java/com/test/parkingslot/model/ParkingSlot.java" beforeDir="false" afterPath="$PROJECT_DIR$/parkingslot-service/src/main/java/com/test/parkingslot/model/ParkingSlot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/payment-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/payment-service/src/main/java/com/test/payment/controller/PaymentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/src/main/java/com/test/payment/controller/PaymentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/payment-service/src/main/java/com/test/payment/service/PaymentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/src/main/java/com/test/payment/service/PaymentServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/payment-service/src/uml/Payment.puml" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/src/uml/Payment.puml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/transport-service/src/main/java/com/test/transport/controller/TransportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/transport-service/src/main/java/com/test/transport/controller/TransportController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/transport-service/src/uml/Transport.puml" beforeDir="false" afterPath="$PROJECT_DIR$/transport-service/src/uml/Transport.puml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/transport-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/transport-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/transport-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/transport-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/transport-service/target/transport-service-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/transport-service/target/transport-service-1.0-SNAPSHOT.jar" afterDir="false" />
@@ -96,7 +88,7 @@
     "Spring Boot.ParkingSlotService.executor": "Run",
     "Spring Boot.ParkingSlotServiceApplication.executor": "Run",
     "Spring Boot.PaymentService.executor": "Run",
-    "Spring Boot.PaymentServiceApplication.executor": "Debug",
+    "Spring Boot.PaymentServiceApplication.executor": "Run",
     "Spring Boot.TransportService.executor": "Run",
     "Spring Boot.TransportServiceApplication.executor": "Run",
     "Spring Boot.ZuulService.executor": "Run",
@@ -160,7 +152,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.PaymentServiceApplication">
+  <component name="RunManager" selected="Spring Boot.TransportServiceApplication">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="zuul-test" />
       <method v="2">
@@ -463,7 +455,63 @@
       <option name="project" value="LOCAL" />
       <updated>1725441206284</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="FIX PAYMENT SERVICE">
+      <option name="closed" value="true" />
+      <created>1725530143991</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1725530143991</updated>
+    </task>
+    <task id="LOCAL-00028" summary="FIX PAYMENT SERVICE">
+      <option name="closed" value="true" />
+      <created>1725530255802</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1725530255802</updated>
+    </task>
+    <task id="LOCAL-00029" summary="add GlobalExceptionHandler in transport">
+      <option name="closed" value="true" />
+      <created>1725584416318</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1725584416318</updated>
+    </task>
+    <task id="LOCAL-00030" summary="remove spacing">
+      <option name="closed" value="true" />
+      <created>1725584437121</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1725584437121</updated>
+    </task>
+    <task id="LOCAL-00031" summary="add GlobalExceptionHandler in parkingslot">
+      <option name="closed" value="true" />
+      <created>1725584588640</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1725584588640</updated>
+    </task>
+    <task id="LOCAL-00032" summary="fix Payment.puml">
+      <option name="closed" value="true" />
+      <created>1725589045849</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1725589045849</updated>
+    </task>
+    <task id="LOCAL-00033" summary="fix the ParkingSlot.puml">
+      <option name="closed" value="true" />
+      <created>1725589494122</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1725589494122</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -481,12 +529,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Remove other modules" />
-    <MESSAGE value="Add exception in createTransport" />
-    <MESSAGE value="Fix Naming Conventions, Best Practices, UML" />
-    <MESSAGE value="Fix the url error" />
-    <MESSAGE value="Postman Collection" />
-    <MESSAGE value="Transport.puml" />
     <MESSAGE value="ParkingSlot.puml" />
     <MESSAGE value="Payment.puml" />
     <MESSAGE value="Fix Payment.puml" />
@@ -506,67 +548,12 @@
     <MESSAGE value="remove space`" />
     <MESSAGE value="." />
     <MESSAGE value="gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="gitignore" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/payment-service/src/main/java/com/test/payment/service/PaymentServiceImpl.java</url>
-          <line>48</line>
-          <option name="timeStamp" value="54" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/payment-service/src/main/java/com/test/payment/service/PaymentServiceImpl.java</url>
-          <line>37</line>
-          <option name="timeStamp" value="57" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/payment-service/src/main/java/com/test/payment/service/PaymentServiceImpl.java</url>
-          <line>38</line>
-          <option name="timeStamp" value="58" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/payment-service/src/main/java/com/test/payment/service/PaymentServiceImpl.java</url>
-          <line>41</line>
-          <option name="timeStamp" value="59" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/payment-service/src/main/java/com/test/payment/service/PaymentServiceImpl.java</url>
-          <line>51</line>
-          <option name="timeStamp" value="61" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/payment-service/src/main/java/com/test/payment/service/PaymentServiceImpl.java</url>
-          <line>50</line>
-          <option name="timeStamp" value="62" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/payment-service/src/main/java/com/test/payment/service/PaymentServiceImpl.java</url>
-          <line>45</line>
-          <option name="timeStamp" value="64" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/payment-service/src/main/java/com/test/payment/service/PaymentServiceImpl.java</url>
-          <line>58</line>
-          <option name="timeStamp" value="65" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/payment-service/src/main/java/com/test/payment/service/PaymentServiceImpl.java</url>
-          <line>56</line>
-          <option name="timeStamp" value="66" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/payment-service/src/main/java/com/test/payment/service/PaymentServiceImpl.java</url>
-          <line>53</line>
-          <option name="timeStamp" value="67" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/payment-service/src/main/java/com/test/payment/service/PaymentServiceImpl.java</url>
-          <line>54</line>
-          <option name="timeStamp" value="68" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="FIX PAYMENT SERVICE" />
+    <MESSAGE value="add GlobalExceptionHandler in transport" />
+    <MESSAGE value="remove spacing" />
+    <MESSAGE value="add GlobalExceptionHandler in parkingslot" />
+    <MESSAGE value="fix Payment.puml" />
+    <MESSAGE value="fix the ParkingSlot.puml" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix the ParkingSlot.puml" />
   </component>
 </project>

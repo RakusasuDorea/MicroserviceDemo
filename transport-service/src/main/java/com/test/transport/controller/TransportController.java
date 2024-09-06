@@ -44,20 +44,4 @@ public class TransportController {
                 .map(t -> new ResponseEntity<>(t, HttpStatus.OK))
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
-
-    @GetMapping("/name/{id}")
-    public ResponseEntity<String> getTransportNameById(@PathVariable Long id) {
-        Optional<Transport> transport = transportServiceImpl.getTransportById(id);
-        return transport
-                .map(t -> new ResponseEntity<>(t.getName(), HttpStatus.OK))
-                .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
-    }
-
-    @GetMapping("type/{id}")
-    public ResponseEntity<String> getTransportTypeById(@PathVariable Long id) {
-        Optional<Transport> transport = transportServiceImpl.getTransportById(id);
-        return transport
-                .map(t -> new ResponseEntity<>(t.getType(), HttpStatus.OK))
-                .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
-    }
 }
