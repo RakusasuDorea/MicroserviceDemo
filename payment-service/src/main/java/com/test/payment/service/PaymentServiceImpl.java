@@ -35,7 +35,7 @@ public class PaymentServiceImpl implements PaymentService {
             String transportUrl = "http://transport-service/transport/" + payment.getTransportId();
             String slotUrl = "http://parkingslot-service/parkingslot/" + payment.getSlotId();
 
-                Transport transport = restTemplate.getForObject(transportUrl, Transport.class);
+            Transport transport = restTemplate.getForObject(transportUrl, Transport.class);
             ParkingSlot parkingSlot =  restTemplate.getForObject(slotUrl, ParkingSlot.class);
 
             if(null == transport || null == parkingSlot) {
@@ -61,19 +61,6 @@ public class PaymentServiceImpl implements PaymentService {
             throw new RuntimeException("Failed to create payment."+ e.getMessage(), e);
         }
     }
-
-//    private int calculatePrice(String transportType) {
-//        switch (transportType) {
-//            case "Light":
-//                return 50;
-//            case "Medium":
-//                return 100;
-//            case "Heavy":
-//                return 150;
-//            default:
-//                return 0;
-//        }
-//    }
 
     private void updateAvailability(Long slotId) {
         String slotUpdateUrl = "http://parkingslot-service/parkingslot/update/false/" + slotId;
