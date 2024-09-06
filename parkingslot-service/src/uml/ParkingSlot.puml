@@ -1,5 +1,4 @@
 @startuml
-
 actor User
 participant ParkingSlotController
 participant ParkingSlotServiceImpl
@@ -19,21 +18,38 @@ deactivate ParkingSlotServiceImpl
 ParkingSlotController -> User: ParkingSlot created
 deactivate ParkingSlotController
 
-User -> ParkingSlotController: updateAvailability(id)
+User -> ParkingSlotController: updateAvailabilityTrue(id)
 activate ParkingSlotController
-ParkingSlotController -> ParkingSlotServiceImpl: updateAvailability(id)
+ParkingSlotController -> ParkingSlotServiceImpl: updateAvailabilityTrue(id)
 activate ParkingSlotServiceImpl
 ParkingSlotServiceImpl -> ParkingSlotRepository: findById(id)
 activate ParkingSlotRepository
 ParkingSlotRepository --> ParkingSlotServiceImpl: Optional<ParkingSlot>
 deactivate ParkingSlotRepository
-ParkingSlotServiceImpl -> ParkingSlotRepository: save(ParkingSlot)
+ParkingSlotServiceImpl -> ParkingSlotRepository: save(ParkingSlot with availability true)
 activate ParkingSlotRepository
 ParkingSlotRepository -> ParkingSlotServiceImpl: ParkingSlot updated
 deactivate ParkingSlotRepository
 ParkingSlotServiceImpl -> ParkingSlotController: ParkingSlot updated
 deactivate ParkingSlotServiceImpl
-ParkingSlotController -> User: ParkingSlot updated
+ParkingSlotController -> User: ParkingSlot updated to true
+deactivate ParkingSlotController
+
+User -> ParkingSlotController: updateAvailabilityFalse(id)
+activate ParkingSlotController
+ParkingSlotController -> ParkingSlotServiceImpl: updateAvailabilityFalse(id)
+activate ParkingSlotServiceImpl
+ParkingSlotServiceImpl -> ParkingSlotRepository: findById(id)
+activate ParkingSlotRepository
+ParkingSlotRepository --> ParkingSlotServiceImpl: Optional<ParkingSlot>
+deactivate ParkingSlotRepository
+ParkingSlotServiceImpl -> ParkingSlotRepository: save(ParkingSlot with availability false)
+activate ParkingSlotRepository
+ParkingSlotRepository -> ParkingSlotServiceImpl: ParkingSlot updated
+deactivate ParkingSlotRepository
+ParkingSlotServiceImpl -> ParkingSlotController: ParkingSlot updated
+deactivate ParkingSlotServiceImpl
+ParkingSlotController -> User: ParkingSlot updated to false
 deactivate ParkingSlotController
 
 User -> ParkingSlotController: getAllParkingSlots()
@@ -66,41 +82,4 @@ ParkingSlotController --> User: Slot Not Found
 deactivate ParkingSlotController
 deactivate User
 end
-
-User -> ParkingSlotController: getParkingSlotNameById(id)
-activate ParkingSlotController
-alt Slot exists
-ParkingSlotController -> ParkingSlotServiceImpl: getParkingSlotById(id)
-activate ParkingSlotServiceImpl
-ParkingSlotServiceImpl -> ParkingSlotRepository: findById(id)
-activate ParkingSlotRepository
-ParkingSlotRepository -> ParkingSlotServiceImpl: Optional<ParkingSlot>
-deactivate ParkingSlotRepository
-ParkingSlotServiceImpl -> ParkingSlotController: Optional<ParkingSlot>
-deactivate ParkingSlotServiceImpl
-ParkingSlotController -> User: ParkingSlot Name (if found) or Not Found
-else Slot not found
-ParkingSlotController --> User: Slot Not Found
-deactivate ParkingSlotController
-deactivate User
-end
-
-User -> ParkingSlotController: getParkingSlotAvailabilityById(id)
-activate ParkingSlotController
-alt Slot exists
-ParkingSlotController -> ParkingSlotServiceImpl: getParkingSlotById(id)
-activate ParkingSlotServiceImpl
-ParkingSlotServiceImpl -> ParkingSlotRepository: findById(id)
-activate ParkingSlotRepository
-ParkingSlotRepository -> ParkingSlotServiceImpl: Optional<ParkingSlot>
-deactivate ParkingSlotRepository
-ParkingSlotServiceImpl -> ParkingSlotController: Optional<ParkingSlot>
-deactivate ParkingSlotServiceImpl
-ParkingSlotController -> User: ParkingSlot Availability (if found) or Not Found
-else Slot not found
-ParkingSlotController --> User: Slot Not Found
-deactivate ParkingSlotController
-deactivate User
-end
-
 @enduml
