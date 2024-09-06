@@ -12,6 +12,7 @@ box "External Services"
 end box
 
 User -> PaymentController: createPayment(Payment)
+activate User
 activate PaymentController
 PaymentController -> PaymentServiceImpl: createPayment(Payment)
 activate PaymentServiceImpl
@@ -41,8 +42,8 @@ alt Slot available
     PaymentServiceImpl -> PaymentController: Payment created
 else Slot not available
     PaymentServiceImpl --> PaymentController: Slot Not Available
+    deactivate PaymentServiceImpl
 end
-deactivate PaymentServiceImpl
 
 PaymentController -> User: Payment created or Slot Not Available
 deactivate PaymentController
@@ -74,8 +75,8 @@ alt Payment exists
     PaymentController -> User: Payment (if found)
 else Payment not found
     PaymentController --> User: Payment Not Found
+    deactivate PaymentController
 end
-deactivate PaymentController
 
 User -> PaymentController: deletePayment(id)
 activate PaymentController
@@ -100,8 +101,9 @@ alt Payment exists
     PaymentServiceImpl -> PaymentController: Payment deleted
 else Payment not found
     PaymentServiceImpl --> PaymentController: Payment Not Found
+    deactivate PaymentServiceImpl
 end
-deactivate PaymentServiceImpl
 PaymentController -> User: Payment deleted or Payment Not Found
+deactivate User
 deactivate PaymentController
 @enduml
