@@ -1,5 +1,4 @@
 @startuml
-
 actor User
 box "Payment Service" #LightBlue
     participant PaymentController
@@ -14,33 +13,25 @@ end box
 
 User -> PaymentController: createPayment(Payment)
 activate PaymentController
-activate User
 PaymentController -> PaymentServiceImpl: createPayment(Payment)
 activate PaymentServiceImpl
 
-PaymentServiceImpl -> TransportService: getTransportName(payment.getTransportId())
+PaymentServiceImpl -> TransportService: getTransportById(payment.getTransportId())
 activate TransportService
-TransportService -> PaymentServiceImpl: transportName
+TransportService -> PaymentServiceImpl: Transport (including name and type)
 deactivate TransportService
 
-PaymentServiceImpl -> TransportService: getTransportType(payment.getTransportId())
-activate TransportService
-TransportService -> PaymentServiceImpl: transportType
-deactivate TransportService
-
-PaymentServiceImpl -> ParkingSlotService: getSlotName(payment.getSlotId())
+PaymentServiceImpl -> ParkingSlotService: getSlotById(payment.getSlotId())
 activate ParkingSlotService
-ParkingSlotService -> PaymentServiceImpl: slotName
-deactivate ParkingSlotService
-
-PaymentServiceImpl -> ParkingSlotService: getSlotAvailability(payment.getSlotId())
-activate ParkingSlotService
-ParkingSlotService -> PaymentServiceImpl: slotAvailability
+ParkingSlotService -> PaymentServiceImpl: ParkingSlot (including name and availability)
 deactivate ParkingSlotService
 
 alt Slot available
-    PaymentServiceImpl -> PaymentServiceImpl: calculatePrice(transportType)
-    PaymentServiceImpl -> PaymentServiceImpl: updateAvailability(slotId)
+    PaymentServiceImpl -> PaymentServiceImpl: calculatePrice(transport.getType())
+    PaymentServiceImpl -> ParkingSlotService: updateSlotAvailabilityFalse(slotId)
+    activate ParkingSlotService
+    ParkingSlotService -> PaymentServiceImpl: Slot updated
+    deactivate ParkingSlotService
 
     PaymentServiceImpl -> PaymentRepository: save(Payment)
     activate PaymentRepository
@@ -50,8 +41,8 @@ alt Slot available
     PaymentServiceImpl -> PaymentController: Payment created
 else Slot not available
     PaymentServiceImpl --> PaymentController: Slot Not Available
-    deactivate PaymentServiceImpl
 end
+deactivate PaymentServiceImpl
 
 PaymentController -> User: Payment created or Slot Not Available
 deactivate PaymentController
@@ -83,9 +74,8 @@ alt Payment exists
     PaymentController -> User: Payment (if found)
 else Payment not found
     PaymentController --> User: Payment Not Found
-    deactivate PaymentController
-
 end
+deactivate PaymentController
 
 User -> PaymentController: deletePayment(id)
 activate PaymentController
@@ -95,18 +85,23 @@ PaymentServiceImpl -> PaymentRepository: findById(id)
 activate PaymentRepository
 alt Payment exists
     PaymentRepository -> PaymentServiceImpl: Optional<Payment>
+    deactivate PaymentRepository
     PaymentServiceImpl -> PaymentServiceImpl: revertAvailability(slotId)
+    PaymentServiceImpl -> ParkingSlotService: updateSlotAvailabilityTrue(slotId)
+    activate ParkingSlotService
+    ParkingSlotService -> PaymentServiceImpl: Slot updated
+    deactivate ParkingSlotService
+
     PaymentServiceImpl -> PaymentRepository: deleteById(id)
+    activate PaymentRepository
     PaymentRepository -> PaymentServiceImpl: Payment deleted
     deactivate PaymentRepository
+
     PaymentServiceImpl -> PaymentController: Payment deleted
 else Payment not found
     PaymentServiceImpl --> PaymentController: Payment Not Found
-    deactivate PaymentRepository
-    deactivate PaymentServiceImpl
 end
+deactivate PaymentServiceImpl
 PaymentController -> User: Payment deleted or Payment Not Found
 deactivate PaymentController
-deactivate User
-
 @enduml
